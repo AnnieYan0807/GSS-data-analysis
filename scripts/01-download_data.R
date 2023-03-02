@@ -9,10 +9,7 @@
 
 
 #### Workspace setup ####
-<<<<<<< HEAD
 library(haven)
-=======
->>>>>>> 63a9385e6e37c8970f7df55844df1669c4164ed1
 library(tidyverse)
 
 #### Download data ####
