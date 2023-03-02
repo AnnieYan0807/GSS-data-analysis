@@ -27,5 +27,5 @@ cleaned_2016gss_data <-
 #### Save data ####
 # [...UPDATE THIS...]
 # change cleaned_data to whatever name you end up with at the end of cleaning
-write_dta(cleaned_data, "outputs/data/cleaned_data.dta")
+write_dta(cleaned_2016gss_data, "outputs/data/cleaned_2016gss_data.dta")
 
