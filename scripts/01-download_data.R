@@ -9,15 +9,10 @@
 
 
 #### Workspace setup ####
-library(opendatatoronto)
-library(tidyverse)
-# [...UPDATE THIS...]
-
-#### Download data ####
-# [...ADD CODE HERE TO DOWNLOAD...]
-
 library(haven)
 library(tidyverse)
+
+#### Download data ####
 
 raw_2016gss_data <- read_dta("GSS2016.dta")
 
