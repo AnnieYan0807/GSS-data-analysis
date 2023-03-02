@@ -1,11 +1,11 @@
 #### Preamble ####
-# Purpose: Simulates... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Data: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Simulates raw data.
+# Author: Sakura Ariga, Annie Yan, Aliyah Maxine Ramos
+# Data: 2  March 2023
+# Contact: aliyahmaxine.ramos@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: Need to know where to get survey data.
+# Any other information needed? None
 
 
 #### Workspace setup ####
