@@ -2,8 +2,9 @@
 title: "My title"
 subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
+  - Sakura Ariga
+  - Aliyah Maxine Ramos
+  - Annie Yan
 thanks: "Code and data are available at: LINK."
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
@@ -19,17 +20,17 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
 ```
 
+# 1 Introduction
 
-# Introduction
+You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
-You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point. 
+# 2 Data {#sec-data}
 
+## 2.1 Survey
 
-
-# Data {#sec-data}
+## 2.2 Questionnaire
 
 Our data is of penguins (@fig-bills).
 
@@ -67,9 +68,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 
-Talk way more about it. 
-
-
+Talk way more about it.
 
 # Model
 
@@ -79,24 +78,23 @@ $$ {#eq-bayes}
 
 @eq-bayes seems useful, eh?
 
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
+Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful.
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
 
+# 3 Results
 
-# Results
+# 4 Discussion
 
-# Discussion
+## 4.1 First discussion point {#sec-first-point}
 
-## First discussion point {#sec-first-point}
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+## 4.2 Second discussion point
 
-## Second discussion point
+## 4.3 Third discussion point
 
-## Third discussion point
-
-## Weaknesses and next steps
+## 4.4 Weaknesses and next steps
 
 Weaknesses and next steps should also be included.
 
@@ -104,15 +102,10 @@ Weaknesses and next steps should also be included.
 
 \appendix
 
-# Appendix {-}
+# 5 Appendix {.unnumbered}
 
-
-# Additional details
-
+# 6 Additional details
 
 \newpage
 
-
-# References
-
-
+# 7 References
