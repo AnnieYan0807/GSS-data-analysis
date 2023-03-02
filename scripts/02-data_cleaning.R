@@ -18,7 +18,7 @@ library(tidyverse)
 library(haven)
 library(tidyverse)
 
-raw_2016gss_data <- read_dta("inputs/data/raw_2016gss_data.dta")
+raw_2016gss_data <- read_csv("inputs/data/raw_2016gss_data.csv")
 
 cleaned_2016gss_data <- 
   raw_2016gss_data |> 
@@ -27,5 +27,5 @@ cleaned_2016gss_data <-
 #### Save data ####
 # [...UPDATE THIS...]
 # change cleaned_data to whatever name you end up with at the end of cleaning
-write_dta(cleaned_2016gss_data, "outputs/data/cleaned_2016gss_data.dta")
+write_csv(cleaned_2016gss_data, "outputs/data/cleaned_2016gss_data.csv")
 
