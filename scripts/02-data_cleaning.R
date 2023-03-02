@@ -12,12 +12,10 @@
 library(tidyverse)
 library(haven)
 
-<<<<<<< HEAD
+
 #### Clean data ####
-raw_2016gss_data <- read_dta("inputs/data/raw_2016gss_data.dta")
-=======
+
 raw_2016gss_data <- read_csv("inputs/data/raw_2016gss_data.csv")
->>>>>>> 63a9385e6e37c8970f7df55844df1669c4164ed1
 
 cleaned_2016gss_data <- 
   raw_2016gss_data |> 
