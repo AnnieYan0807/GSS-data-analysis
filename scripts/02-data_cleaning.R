@@ -19,7 +19,8 @@ raw_2016gss_data <- read_csv("inputs/data/raw_2016gss_data.csv")
 
 cleaned_2016gss_data <- 
   raw_2016gss_data |> 
-  select(intuse, intmbile, intrecnt, twitter, facebook, instagrm, linkedin, snapchat, tumblr, whatsapp, googlesn, pinterst, flickr, vine, clssmtes, starts_with("sns"), wwwhr, wwwmin, age, race, income, rincome, educ, childs, marital, sex)
+  select(intuse, intmbile, intrecnt, wwwhr, wwwmin, age, race, income, rincome, educ, childs, marital, sex, happy)
+  # focus on internet and other variables
 
 #### Save data ####
 # change cleaned_data to whatever name you end up with at the end of cleaning
