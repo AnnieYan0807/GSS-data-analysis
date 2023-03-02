@@ -14,13 +14,18 @@ library(tidyverse)
 
 #### Clean data ####
 # [...UPDATE THIS...]
-raw_data <- read_csv("inputs/data/raw_data.csv")
 
+library(haven)
+library(tidyverse)
 
+raw_2016gss_data <- read_dta("inputs/data/raw_2016gss_data.dta")
 
+cleaned_2016gss_data <- 
+  raw_2016gss_data |> 
+  select(starts_with("int"), starts_with("sns"), age, race, income, rincome, educ, degree, health, childs, marital, sex)
 
 #### Save data ####
 # [...UPDATE THIS...]
 # change cleaned_data to whatever name you end up with at the end of cleaning
-write_csv(cleaned_data, "outputs/data/cleaned_data.csv")
+write_dta(cleaned_data, "outputs/data/cleaned_data.dta")
 

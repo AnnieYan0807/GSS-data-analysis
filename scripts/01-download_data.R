@@ -16,11 +16,14 @@ library(tidyverse)
 #### Download data ####
 # [...ADD CODE HERE TO DOWNLOAD...]
 
+library(haven)
+library(tidyverse)
 
+raw_2016gss_data <- read_dta("GSS2016.dta")
 
 #### Save data ####
 # [...UPDATE THIS...]
 # change the_raw_data to whatever name you assigned when you downloaded it.
-write_csv(the_raw_data, "inputs/data/raw_data.csv") 
+write_dta(raw_2016gss_data, "inputs/data/raw_2016gss_data.dta") 
 
          
