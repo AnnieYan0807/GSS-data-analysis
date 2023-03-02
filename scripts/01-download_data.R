@@ -9,7 +9,10 @@
 
 
 #### Workspace setup ####
+<<<<<<< HEAD
 library(haven)
+=======
+>>>>>>> 63a9385e6e37c8970f7df55844df1669c4164ed1
 library(tidyverse)
 
 #### Download data ####
@@ -19,6 +22,6 @@ raw_2016gss_data <- read_dta("GSS2016.dta")
 #### Save data ####
 # [...UPDATE THIS...]
 # change the_raw_data to whatever name you assigned when you downloaded it.
-write_dta(raw_2016gss_data, "inputs/data/raw_2016gss_data.dta") 
+write_csv(raw_2016gss_data, "inputs/data/raw_2016gss_data.csv") 
 
          
