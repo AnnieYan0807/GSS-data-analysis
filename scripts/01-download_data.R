@@ -24,6 +24,6 @@ raw_2016gss_data <- read_dta("GSS2016.dta")
 #### Save data ####
 # [...UPDATE THIS...]
 # change the_raw_data to whatever name you assigned when you downloaded it.
-write_dta(raw_2016gss_data, "inputs/data/raw_2016gss_data.dta") 
+write_csv(raw_2016gss_data, "inputs/data/raw_2016gss_data.csv") 
 
          
