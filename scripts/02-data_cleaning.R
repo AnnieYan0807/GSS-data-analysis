@@ -107,6 +107,9 @@ cleaned_2016gss_data$sex [cleaned_2016gss_data$sex == -99] <- "No answer"
 cleaned_2016gss_data$sex [cleaned_2016gss_data$sex == -97] <- "Did not answer"
 
 # Rename race to be more understandable 
+cleaned_2016gss_data$race [cleaned_2016gss_data$race == 1] <- "White"
+cleaned_2016gss_data$race [cleaned_2016gss_data$race == 2] <- "Black"
+cleaned_2016gss_data$race [cleaned_2016gss_data$race == 3] <- "Other"
 cleaned_2016gss_data$race [cleaned_2016gss_data$race == -100] <- "NA"
 
 # Rename family income to be more understandable 
@@ -145,6 +148,11 @@ cleaned_2016gss_data$rincome [cleaned_2016gss_data$rincome == -97] <- "Skipped"
 cleaned_2016gss_data$rincome [cleaned_2016gss_data$rincome == -90] <- "Refused"
 
 # Rename degree to be more understandable 
+cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == 0] <- "Less than high school"
+cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == 1] <- "High school"
+cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == 2] <- "Associate/junior college"
+cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == 3] <- "Bachelor's"
+cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == 4] <- "Graduate"
 cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == -99] <- "No answer"
 cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == -98] <- "Do not know"
 cleaned_2016gss_data$degree [cleaned_2016gss_data$degree == -97] <- "Skipped"
@@ -157,26 +165,40 @@ cleaned_2016gss_data$childs [cleaned_2016gss_data$childs == -98] <- "Do not know
 cleaned_2016gss_data$childs [cleaned_2016gss_data$childs == -97] <- "Skipped"
 
 # Rename marital to be more understandable 
+cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == 1] <- "Married"
+cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == 2] <- "Widowed"
+cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == 3] <- "Divorced"
+cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == 4] <- "Separated"
+cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == 5] <- "Never married"
 cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == -99] <- "No answer"
 cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == -98] <- "Do not know"
 cleaned_2016gss_data$marital [cleaned_2016gss_data$marital == -97] <- "Skipped"
 
 # Rename happy to be more understandable 
+cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == 1] <- "Very happy"
+cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == 2] <- "Pretty happy"
+cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == 3] <- "Not too happy"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -100] <- "NA"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -99] <- "No answer"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -98] <- "Do not know"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -97] <- "Skipped"
 
 # Rename intuse to be more understandable 
+cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == 1] <- "Yes"
+cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == 2] <- "No"
 cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == -100] <- "NA"
 cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == -99] <- "No answer"
 cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == -98] <- "Do not know"
 
 # Rename intmbile to be more understandable 
+cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == 1] <- "Yes"
+cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == 2] <- "No"
 cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == -100] <- "NA"
 cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == -99] <- "No answer"
 
 # Rename intrecnt to be more understandable 
+cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 1] <- "Yes"
+cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 2] <- "No"
 cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == -100] <- "NA"
 cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == -99] <- "No answer"
 cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 1] <- "Yes"
@@ -268,6 +290,25 @@ cleaned_2016gss_data$wwwhr [cleaned_2016gss_data$wwwhr == 168] <- "150+"
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == -100] <- "NA"
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == -99] <- "No answer"
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == -98] <- "Do not know"
+
+# Renaming column titles to more understandable labels
+cleaned_2016gss_data <-
+  cleaned_2016gss_data %>%
+  rename(
+    "Age Group" = age,
+    "Sex" = sex,
+    "Race" = race,
+    "Personal Income" = income,
+    "Total Family Income" = rincome,
+    "Highest Education Obtained" = degree,
+    "Number of Children" = childs,
+    "Marital Status" = marital, 
+    "Level of Happiness" = happy, 
+    "Use of Internet" = intuse,
+    "Use of Internet from Handheld Device" = intmbile,
+    "Use of Internet Yesterday" = intrecnt,
+    "Weekly Total of Internet Use (Hours)" = wwwhr
+  )
 
 
 #### Save data ####
