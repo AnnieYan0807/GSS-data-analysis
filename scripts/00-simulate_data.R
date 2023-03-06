@@ -45,7 +45,6 @@ simulated_data <-
         lambda = 1
       ),
     
-    
     income =
       rpois(
         n = 365 * 3,
@@ -88,6 +87,3 @@ head(simulated_data)
 
 
 write_csv(simulated_data, "outputs/data/simulated_data.csv") 
-
-
-
