@@ -12,7 +12,7 @@
 library(tidyverse)
 
 #### Simulate data ####
-# [...ADD CODE HERE...]
+# simulate variables: internet useage, hours, age, race, income, sex, education, numbers of children, marital and happiness
 
 
 
