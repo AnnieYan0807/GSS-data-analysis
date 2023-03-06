@@ -10,6 +10,13 @@
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
+#read csv
+simulate_data <- read.csv(here::here("Outputs/data/simulated_data.csv"))
+
+
+
 
 #### Test data ####
+simulate_data$age |> class() == "integer"
+simulate_data$happy|> min() >= 0
+simulate_data$hours|> max() <= 24

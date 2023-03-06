@@ -18,35 +18,76 @@ library(tidyverse)
 
 set.seed(853)
 
-simulated_bullying_data <-
+simulated_data <-
   tibble(
-    Date = rep(x = as.Date("2021-01-01") + c(0:364), times = 3),
     
-    State = c(
-      rep(x = "AK", times = 365),
-      rep(x = "CA", times = 365),
-      rep(x = "NY", times = 365)
+    int_use = c(
+      rep(x = "Yes", times = 365),
+      rep(x = "No", times = 365),
+      rep(x = "N/A", times = 365)
     ),
     
-    Cyberbullying =
+    hours =
       rpois(
         n = 365 * 3,
-        lambda = 10
+        lambda = 7
       ),
     
-    Schoolbullying =
+    age =
       rpois(
         n = 365 * 3,
-        lambda = 20
+        lambda = 40
       ),
     
-    School_cyber_bullying =
+    race =
       rpois(
         n = 365 * 3,
-        lambda = 80
+        lambda = 1
+      ),
+    
+    
+    income =
+      rpois(
+        n = 365 * 3,
+        lambda = 12
+      ),
+    
+    edu =
+      rpois(
+        n = 365 * 3,
+        lambda = 16
+      ),
+    
+    child =
+      rpois(
+        n = 365 * 3,
+        lambda = 2
+      ),
+    
+    marital = c(
+      rep(x = "Yes", times = 365),
+      rep(x = "No", times = 365),
+      rep(x = "N/A", times = 365)
+    ),
+    
+    sex = c(
+      rep(x = "F", times = 365),
+      rep(x = "M", times = 365),
+      rep(x = "Other", times = 365)
+      ),
+    
+    happy =
+      rpois(
+        n = 365 * 3,
+        lambda = 2
       )
-    
   )
 
 
-head(simulated_bullying_data)
+head(simulated_data)
+
+
+write_csv(simulated_data, "outputs/data/simulated_data.csv") 
+
+
+
