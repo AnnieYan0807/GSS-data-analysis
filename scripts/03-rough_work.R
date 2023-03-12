@@ -239,6 +239,67 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
 
 
 
+## Income VS. Marital Status ##
+mean_marital<- cleaned_2016gss_data %>%
+  select(`Marital Status`,`Weekly Total of Internet Use (Hours)`) %>%
+  group_by(`Marital Status`)%>%
+  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "Marital Status", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_marital <- melt(mean_marital)  #the function melt reshapes it from wide to long
+mean_marital <- mean_marital[-6,]  # delete NA row
+
+# save mean data
+write_csv(mean_marital, "outputs/data/mean_marital.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_marital |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Marital Status",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+## Income VS. Level of Happiness ##
+mean_happy<- cleaned_2016gss_data %>%
+  select(`Level of Happiness`,`Weekly Total of Internet Use (Hours)`) %>%
+  group_by(`Level of Happiness`)%>%
+  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "Level of Happiness", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_happy <- melt(mean_happy)  #the function melt reshapes it from wide to long
+mean_happy <- mean_happy[-4,]  # delete NA row
+
+# save mean data
+write_csv(mean_happy, "outputs/data/mean_happy.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_happy |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Level of Happiness",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+
 
 #### Tables ####
 
