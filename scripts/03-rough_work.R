@@ -295,12 +295,17 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
   )
 
 
-
-
-
+install.packages("vtable")
+install.packages("kableExtra")
+library(vtable)
+library(kableExtra)
 
 
 
 #### Tables ####
-
-
+# Summary statistics of our GSS data 
+summ_gss <- cleaned_2016gss_data %>% 
+  select(`Age Group`, `Sex`, `Race`, `Personal Income`, `Total Family Income`, 
+         `Highest Education Obtained`, `Number of Children`, `Marital Status`,
+         `Level of Happiness`, `Weekly Total of Internet Use (Hours)`)
+sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')

@@ -22,9 +22,21 @@ bibliography: references.bib
 
 install.packages("kableExtra")
 install.packages("tidyverse")
+install.packages("lessR")
+install.packages("tidyr")
+install.packages("reshape2")
+install.packages("knitr")
+install.packages("haven")
+install.packages("vtable")
 
 library(kableExtra)
 library(tidyverse)
+library(lessR)
+library(tidyr)
+library(reshape2)
+library(knitr)
+library(haven)
+library(vtable)
 ```
 
 ```{r}
@@ -38,6 +50,16 @@ cleaned_2016gss_data <- read.csv(here::here("outputs/data/cleaned_2016gss_data.c
 You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
 # 2 Data {#sec-data}
+
+```{r}
+# Summary statistics of our GSS data 
+summ_gss <- cleaned_2016gss_data %>% 
+  select(`Age.Group`, `Sex`, `Race`, `Personal.Income`, `Total.Family.Income`, 
+         `Highest.Education.Obtained`, `Number.of.Children`, `Marital.Status`,
+         `Level.of.Happiness`, `Weekly.Total.of.Internet.Use..Hours.`)
+# sumtable(summ_gss,  title = "Summary Statistics of Our Variables", out = "kable")
+## the final line doesn't work for some reason and i'm mad
+```
 
 ## 2.1 Survey
 
@@ -77,6 +99,9 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 
 
 ```{r}
+#| label: fig-happyandinternet
+#| fig-cap: Weekly Total of Internet Use by Level of Happiness
+#| echo: false
 ## Graph Level of Happiness VS. Internet Hours##
 mean_happy<- cleaned_2016gss_data %>%
   select(`Level of Happiness`,`Weekly Total of Internet Use (Hours)`) %>%
@@ -102,6 +127,38 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
     y = "Internet Usage Hours"
   )
 ```
+
+
+```{r}
+#| label: fig-educandinternet
+#| fig-cap: Weekly Total of Internet Use by Highest Education Obtained
+#| echo: false
+## Highest Education Obtained VS. Internet Hours ##
+mean_edu<- cleaned_2016gss_data %>%
+  select(`Highest Education Obtained`,`Weekly Total of Internet Use (Hours)`) %>%
+  group_by(`Highest Education Obtained`)%>%
+  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "Highest Education Obtained", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_edu <- melt(mean_edu)  #the function melt reshapes it from wide to long
+mean_edu <- mean_edu[-6,]  # delete NA row
+
+# save mean data
+write_csv(mean_edu, "outputs/data/mean_edu.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_edu |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Highest Education Obtained",
+    y = "Internet Usage Hours"
+  )
+```
+
 
 # 4 Discussion
 
