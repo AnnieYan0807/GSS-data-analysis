@@ -20,7 +20,7 @@ raw_2016gss_data <- read_csv("inputs/data/raw_2016gss_data.csv")
 # Focus on internet variables and demographic variables
 cleaned_2016gss_data <- 
   raw_2016gss_data |> 
-  select(age, sex, race, income, rincome, degree, childs, marital, happy, intuse, intmbile, intrecnt, wwwhr)
+  select(age, sex, race, income, rincome, degree, childs, marital, happy, intmbile, wwwhr)
 
 # Rename ages to age groups 
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == 18] <- "Ages 18 - 20"
@@ -183,27 +183,11 @@ cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -99] <- "No answer"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -98] <- "Do not know"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -97] <- "Skipped"
 
-# Rename intuse to be more understandable 
-cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == 1] <- "Yes"
-cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == 2] <- "No"
-cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == -100] <- "NA"
-cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == -99] <- "No answer"
-cleaned_2016gss_data$intuse [cleaned_2016gss_data$intuse == -98] <- "Do not know"
-
 # Rename intmbile to be more understandable 
 cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == 1] <- "Yes"
 cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == 2] <- "No"
 cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == -100] <- "NA"
 cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == -99] <- "No answer"
-
-# Rename intrecnt to be more understandable 
-cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 1] <- "Yes"
-cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 2] <- "No"
-cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == -100] <- "NA"
-cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == -99] <- "No answer"
-cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 1] <- "Yes"
-cleaned_2016gss_data$intrecnt [cleaned_2016gss_data$intrecnt == 2] <- "No"
-
 
 # Renaming column titles to more understandable labels
 cleaned_2016gss_data <-
@@ -218,9 +202,7 @@ cleaned_2016gss_data <-
     "Number of Children" = childs,
     "Marital Status" = marital, 
     "Level of Happiness" = happy, 
-    "Use of Internet" = intuse,
     "Use of Internet from Handheld Device" = intmbile,
-    "Use of Internet Yesterday" = intrecnt,
     "Weekly Total of Internet Use (Hours)" = wwwhr
   )
 
