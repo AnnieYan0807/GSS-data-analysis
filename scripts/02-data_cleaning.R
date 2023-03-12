@@ -20,7 +20,7 @@ raw_2016gss_data <- read_csv("inputs/data/raw_2016gss_data.csv")
 # Focus on internet variables and demographic variables
 cleaned_2016gss_data <- 
   raw_2016gss_data |> 
-  select(age, sex, race, income, rincome, degree, childs, marital, happy, intmbile, wwwhr)
+  select(age, sex, race, income, rincome, degree, childs, marital, happy, wwwhr)
 
 # Rename ages to age groups 
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == 18] <- "Ages 18 - 20"
@@ -183,12 +183,6 @@ cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -99] <- "No answer"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -98] <- "Do not know"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -97] <- "Skipped"
 
-# Rename intmbile to be more understandable 
-cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == 1] <- "Yes"
-cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == 2] <- "No"
-cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == -100] <- "NA"
-cleaned_2016gss_data$intmbile [cleaned_2016gss_data$intmbile == -99] <- "No answer"
-
 # Renaming column titles to more understandable labels
 cleaned_2016gss_data <-
   cleaned_2016gss_data %>%
@@ -202,7 +196,6 @@ cleaned_2016gss_data <-
     "Number of Children" = childs,
     "Marital Status" = marital, 
     "Level of Happiness" = happy, 
-    "Use of Internet from Handheld Device" = intmbile,
     "Weekly Total of Internet Use (Hours)" = wwwhr
   )
 
