@@ -20,75 +20,79 @@ library(reshape2)
 cleaned_2016gss_data <- read_csv("outputs/data/cleaned_2016gss_data.csv")
 
 
-# BAR GRAPHS SHOWING EACH VARIABLE AND HOW MANY RESPONDENTS ARE IN EACH CATEGORY
+### BAR GRAPHS OF EACH VARIABLE to show how many respondents for each option ###
 
+# age
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Age Group`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Age", y = "Number of Respondents")
 
+# sex
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = Sex)) +
   geom_bar() +
   labs(x = "Sex", y = "Number of Respondents")
 
+# race
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = Race)) +
   geom_bar() +
   labs(x = "Race", y = "Number of Respondents")
 
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = Race)) +
-  geom_bar() +
-  labs(x = "Race", y = "Number of Respondents")
-
+# personal income
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Personal Income`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Personal Income", y = "Number of Respondents")
 
+# total family income
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Total Family Income`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Total Family Income", y = "Number of Respondents")
 
+# education
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Highest Education Obtained`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Education", y = "Number of Respondents")
 
+# number of children
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Number of Children`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Number of Children", y = "Number of Respondents")
 
-
+# marital status
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Marital Status`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Marital Status", y = "Number of Respondents")
 
-
+# level of happiness
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Level of Happiness`)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Level of Happiness", y = "Number of Respondents")
 
+# weekly total of internet use (hours) - could be graphed differently...
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = `Weekly Total of Internet Use (Hours)`)) +
   geom_bar() +
   labs(x = "Weekly Total of Internet Use (Hours)", y = "Number of Respondents")
 
 
+### AVERAGES OF EACH VARIABLE AGAINST INTERNET USE HOURS ###
 
-## Age VS. Internet Hours##
+## Age VS. Internet Hours ##
 mean_age<- cleaned_2016gss_data %>%
   select(`Age Group`,`Weekly Total of Internet Use (Hours)`) %>%
   group_by(`Age Group`)%>%
@@ -118,9 +122,7 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
 
 
 
-
-
-# Income VS. Internet Hours
+## Income VS. Internet Hours ##
 mean_income<- cleaned_2016gss_data %>%
   select(`Total Family Income`,`Weekly Total of Internet Use (Hours)`) %>%
   group_by(`Total Family Income`)%>%
@@ -144,8 +146,6 @@ mean_income |> ggplot(aes(x = variable, y = value)) +
     x = "Total Family Income",
     y = "Internet Usage Hours"
   )
-
-
 
 
 
@@ -182,11 +182,7 @@ mean_edu |> ggplot(aes(x = variable, y = value)) +
 
 
 
-
-
-
-
-# Sex VS. Internet Hours
+## Sex VS. Internet Hours ##
 mean_sex<- cleaned_2016gss_data %>%
   select(`Sex`,`Weekly Total of Internet Use (Hours)`) %>%
   group_by(`Sex`)%>%
@@ -215,7 +211,7 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
 
 
 
-# Race VS. Internet Hours
+## Race VS. Internet Hours ##
 mean_race<- cleaned_2016gss_data %>%
   select(`Race`,`Weekly Total of Internet Use (Hours)`) %>%
   group_by(`Race`)%>%
