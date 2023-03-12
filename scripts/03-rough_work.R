@@ -239,7 +239,7 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
 
 
 
-## Income VS. Marital Status ##
+## Marital Status VS. Internet Hours ##
 mean_marital<- cleaned_2016gss_data %>%
   select(`Marital Status`,`Weekly Total of Internet Use (Hours)`) %>%
   group_by(`Marital Status`)%>%
@@ -269,7 +269,7 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 
 
 
-## Income VS. Level of Happiness ##
+## Level of Happiness VS. Internet Hours##
 mean_happy<- cleaned_2016gss_data %>%
   select(`Level of Happiness`,`Weekly Total of Internet Use (Hours)`) %>%
   group_by(`Level of Happiness`)%>%
