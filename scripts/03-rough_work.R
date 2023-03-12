@@ -20,7 +20,71 @@ library(reshape2)
 cleaned_2016gss_data <- read_csv("outputs/data/cleaned_2016gss_data.csv")
 
 
+# BAR GRAPHS SHOWING EACH VARIABLE AND HOW MANY RESPONDENTS ARE IN EACH CATEGORY
 
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Age Group`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Age", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = Sex)) +
+  geom_bar() +
+  labs(x = "Sex", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = Race)) +
+  geom_bar() +
+  labs(x = "Race", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = Race)) +
+  geom_bar() +
+  labs(x = "Race", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Personal Income`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Personal Income", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Total Family Income`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Total Family Income", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Highest Education Obtained`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Education", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Number of Children`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Number of Children", y = "Number of Respondents")
+
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Marital Status`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Marital Status", y = "Number of Respondents")
+
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Level of Happiness`)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Level of Happiness", y = "Number of Respondents")
+
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = `Weekly Total of Internet Use (Hours)`)) +
+  geom_bar() +
+  labs(x = "Weekly Total of Internet Use (Hours)", y = "Number of Respondents")
 
 
 
