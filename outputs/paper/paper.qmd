@@ -5,7 +5,7 @@ author:
   - Sakura Ariga
   - Aliyah Maxine Ramos
   - Annie Yan
-thanks: "Code and data are available at: LINK."
+thanks: "Code and data are available at: https://github.com/AnnieYan0807/GSS-data-analysis.git."
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
@@ -124,7 +124,7 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
 
 
 ```{r}
-#| label: fig-educandinternet
+#| label: fig-degreeandinternet
 #| fig-cap: Weekly Total of Internet Use by Highest Education Obtained
 #| echo: false
 ## Highest Education Obtained VS. Internet Hours ##
