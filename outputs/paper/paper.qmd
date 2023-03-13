@@ -54,10 +54,10 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 ```{r}
 # Summary statistics of our GSS data 
 summ_gss <- cleaned_2016gss_data %>% 
-  select(`Age.Group`, `Sex`, `Race`, `Personal.Income`, `Total.Family.Income`, 
-         `Highest.Education.Obtained`, `Number.of.Children`, `Marital.Status`,
-         `Level.of.Happiness`, `Weekly.Total.of.Internet.Use..Hours.`)
-# sumtable(summ_gss,  title = "Summary Statistics of Our Variables", out = "kable")
+  select(age, sex, race, income, rincome, 
+         degree, childs, marital,
+         happy, wwwhr)
+sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')
 ## the final line doesn't work for some reason and i'm mad
 ```
 
@@ -72,18 +72,15 @@ summ_gss <- cleaned_2016gss_data %>%
 #| fig-cap: Weekly Total of Internet Use by Marital Status
 #| echo: false
 ## Graph Marital Status VS. Internet Hours ##
-mean_marital <- cleaned_2016gss_data %>%
-  select(`Marital Status`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Marital Status`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Marital Status", values_from = c("Mean_total"))
+mean_marital<- cleaned_2016gss_data %>%
+  select(marital,wwwhr) %>%
+  group_by(marital)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "marital", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_marital <- melt(mean_marital)  #the function melt reshapes it from wide to long
 mean_marital <- mean_marital[-6,]  # delete NA row
-
-# save mean data
-write_csv(mean_marital, "outputs/data/mean_marital.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_marital |> ggplot(aes(x = variable, y = value)) + 
@@ -96,7 +93,7 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
     y = "Internet Usage Hours"
   )
 ```
-
+@fig-maritalandinternet displays the relationship between marital status and internet usage in 2016. 
 
 ```{r}
 #| label: fig-happyandinternet
@@ -104,17 +101,14 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 #| echo: false
 ## Graph Level of Happiness VS. Internet Hours##
 mean_happy<- cleaned_2016gss_data %>%
-  select(`Level of Happiness`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Level of Happiness`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Level of Happiness", values_from = c("Mean_total"))
+  select(happy,wwwhr) %>%
+  group_by(happy)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "happy", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_happy <- melt(mean_happy)  #the function melt reshapes it from wide to long
 mean_happy <- mean_happy[-4,]  # delete NA row
-
-# save mean data
-write_csv(mean_happy, "outputs/data/mean_happy.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_happy |> ggplot(aes(x = variable, y = value)) + 
@@ -135,17 +129,14 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
 #| echo: false
 ## Highest Education Obtained VS. Internet Hours ##
 mean_edu<- cleaned_2016gss_data %>%
-  select(`Highest Education Obtained`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Highest Education Obtained`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Highest Education Obtained", values_from = c("Mean_total"))
+  select(degree, wwwhr) %>%
+  group_by(degree)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "degree", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_edu <- melt(mean_edu)  #the function melt reshapes it from wide to long
 mean_edu <- mean_edu[-6,]  # delete NA row
-
-# save mean data
-write_csv(mean_edu, "outputs/data/mean_edu.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_edu |> ggplot(aes(x = variable, y = value)) + 

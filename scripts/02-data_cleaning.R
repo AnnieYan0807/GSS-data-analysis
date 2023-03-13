@@ -184,20 +184,20 @@ cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -98] <- "Do not know"
 cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -97] <- "Skipped"
 
 # Renaming column titles to more understandable labels
-cleaned_2016gss_data <-
-  cleaned_2016gss_data %>%
-  rename(
-    "Age Group" = age,
-    "Sex" = sex,
-    "Race" = race,
-    "Personal Income" = income,
-    "Total Family Income" = rincome,
-    "Highest Education Obtained" = degree,
-    "Number of Children" = childs,
-    "Marital Status" = marital, 
-    "Level of Happiness" = happy, 
-    "Weekly Total of Internet Use (Hours)" = wwwhr
-  )
+#cleaned_2016gss_data <-
+#  cleaned_2016gss_data %>%
+#  rename(
+#    "Age Group" = age,
+#    "Sex" = sex,
+#    "Race" = race,
+#    "Personal Income" = income,
+#    "Total Family Income" = rincome,
+#    "Highest Education Obtained" = degree,
+#    "Number of Children" = childs,
+#    "Marital Status" = marital, 
+#    "Level of Happiness" = happy, 
+#    "Weekly Total of Internet Use (Hours)" = wwwhr
+#  )
 
 
 #### Save data ####

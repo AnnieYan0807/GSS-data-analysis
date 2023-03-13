@@ -25,68 +25,68 @@ cleaned_2016gss_data <- read_csv("outputs/data/cleaned_2016gss_data.csv")
 
 # age
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Age Group`)) +
+  ggplot(mapping = aes(x = age)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Age", y = "Number of Respondents")
 
 # sex
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = Sex)) +
+  ggplot(mapping = aes(x = sex)) +
   geom_bar() +
   labs(x = "Sex", y = "Number of Respondents")
 
 # race
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = Race)) +
+  ggplot(mapping = aes(x = race)) +
   geom_bar() +
   labs(x = "Race", y = "Number of Respondents")
 
 # personal income
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Personal Income`)) +
+  ggplot(mapping = aes(x = income)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Personal Income", y = "Number of Respondents")
 
 # total family income
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Total Family Income`)) +
+  ggplot(mapping = aes(x = rincome)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Total Family Income", y = "Number of Respondents")
 
 # education
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Highest Education Obtained`)) +
+  ggplot(mapping = aes(x = degree)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Education", y = "Number of Respondents")
 
 # number of children
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Number of Children`)) +
+  ggplot(mapping = aes(x = childs)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Number of Children", y = "Number of Respondents")
 
 # marital status
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Marital Status`)) +
+  ggplot(mapping = aes(x = marital)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Marital Status", y = "Number of Respondents")
 
 # level of happiness
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Level of Happiness`)) +
+  ggplot(mapping = aes(x = happy)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Level of Happiness", y = "Number of Respondents")
 
 # weekly total of internet use (hours) - could be graphed differently...
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = `Weekly Total of Internet Use (Hours)`)) +
+  ggplot(mapping = aes(x = wwwhr)) +
   geom_bar() +
   labs(x = "Weekly Total of Internet Use (Hours)", y = "Number of Respondents")
 
@@ -95,10 +95,10 @@ cleaned_2016gss_data |>
 
 ## Age VS. Internet Hours ##
 mean_age<- cleaned_2016gss_data %>%
-  select(`Age Group`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Age Group`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Age Group", values_from = c("Mean_total"))
+  select(age,wwwhr) %>%
+  group_by(age)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "age", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_age <- melt(mean_age)  #the function melt reshapes it from wide to long
@@ -125,10 +125,10 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
 
 ## Income VS. Internet Hours ##
 mean_income<- cleaned_2016gss_data %>%
-  select(`Total Family Income`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Total Family Income`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Total Family Income", values_from = c("Mean_total"))
+  select(rincome,wwwhr) %>%
+  group_by(rincome)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "rincome", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_income <- melt(mean_income)  #the function melt reshapes it from wide to long
@@ -155,10 +155,10 @@ mean_income |> ggplot(aes(x = variable, y = value)) +
 
 ## Education VS. Internet Hours ##
 mean_edu<- cleaned_2016gss_data %>%
-  select(`Highest Education Obtained`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Highest Education Obtained`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Highest Education Obtained", values_from = c("Mean_total"))
+  select(degree,wwwhr) %>%
+  group_by(degree)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "degree", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_edu <- melt(mean_edu)  #the function melt reshapes it from wide to long
@@ -185,10 +185,10 @@ mean_edu |> ggplot(aes(x = variable, y = value)) +
 
 ## Sex VS. Internet Hours ##
 mean_sex<- cleaned_2016gss_data %>%
-  select(`Sex`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Sex`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Sex", values_from = c("Mean_total"))
+  select(sex,wwwhr) %>%
+  group_by(sex)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "sex", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_sex <- melt(mean_sex)  #the function melt reshapes it from wide to long
@@ -214,10 +214,10 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
 
 ## Race VS. Internet Hours ##
 mean_race<- cleaned_2016gss_data %>%
-  select(`Race`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Race`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Race", values_from = c("Mean_total"))
+  select(race,wwwhr) %>%
+  group_by(race)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "race", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_race <- melt(mean_race)  #the function melt reshapes it from wide to long
@@ -241,10 +241,10 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
 
 ## Marital Status VS. Internet Hours ##
 mean_marital<- cleaned_2016gss_data %>%
-  select(`Marital Status`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Marital Status`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Marital Status", values_from = c("Mean_total"))
+  select(marital,wwwhr) %>%
+  group_by(marital)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "marital", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_marital <- melt(mean_marital)  #the function melt reshapes it from wide to long
@@ -271,10 +271,10 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 
 ## Level of Happiness VS. Internet Hours##
 mean_happy<- cleaned_2016gss_data %>%
-  select(`Level of Happiness`,`Weekly Total of Internet Use (Hours)`) %>%
-  group_by(`Level of Happiness`)%>%
-  summarise(Mean_total = mean(`Weekly Total of Internet Use (Hours)` , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "Level of Happiness", values_from = c("Mean_total"))
+  select(happy,wwwhr) %>%
+  group_by(happy)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "happy", values_from = c("Mean_total"))
 
 ## mutate from wide to long 
 mean_happy <- melt(mean_happy)  #the function melt reshapes it from wide to long
@@ -295,17 +295,17 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
   )
 
 
-install.packages("vtable")
-install.packages("kableExtra")
-library(vtable)
-library(kableExtra)
 
 
 
 #### Tables ####
 # Summary statistics of our GSS data 
+install.packages("vtable")
+install.packages("kableExtra")
+library(vtable)
+library(kableExtra)
 summ_gss <- cleaned_2016gss_data %>% 
-  select(`Age Group`, `Sex`, `Race`, `Personal Income`, `Total Family Income`, 
-         `Highest Education Obtained`, `Number of Children`, `Marital Status`,
-         `Level of Happiness`, `Weekly Total of Internet Use (Hours)`)
+  select(age, sex, race, income, rincome, 
+         degree, childs, marital,
+         happy, wwwhr)
 sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')
