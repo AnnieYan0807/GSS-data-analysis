@@ -158,7 +158,7 @@ write_csv(mean_age, "outputs/data/mean_age.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_age |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -188,7 +188,7 @@ write_csv(mean_income, "outputs/data/mean_income.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_income |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -218,7 +218,7 @@ write_csv(mean_edu, "outputs/data/mean_edu.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_edu |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -247,7 +247,7 @@ write_csv(mean_sex, "outputs/data/mean_sex.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_sex |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -276,7 +276,7 @@ write_csv(mean_race, "outputs/data/mean_race.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_race |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -304,7 +304,7 @@ write_csv(mean_marital, "outputs/data/mean_marital.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_marital |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -334,7 +334,7 @@ write_csv(mean_happy, "outputs/data/mean_happy.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_happy |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
