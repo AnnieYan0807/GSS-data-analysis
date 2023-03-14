@@ -114,7 +114,7 @@ cleaned_2016gss_data$race [cleaned_2016gss_data$race == 2] <- "Black"
 cleaned_2016gss_data$race [cleaned_2016gss_data$race == 3] <- "Other"
 cleaned_2016gss_data$race [cleaned_2016gss_data$race == -100] <- "NA"
 
-# Rename family income to be more understandable 
+# Rename personal income to be more understandable 
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 1] <- "<$1,000"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 2] <- "$1,000 to $4,999"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 3] <- "$1,000 to $4,999"
@@ -123,6 +123,9 @@ cleaned_2016gss_data$income [cleaned_2016gss_data$income == 5] <- "$5,000 to $9,
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 6] <- "$5,000 to $9,999"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 7] <- "$5,000 to $9,999"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 8] <- "$5,000 to $9,999"
+cleaned_2016gss_data$income [cleaned_2016gss_data$income == 9] <- "$10,000 to $14,999"
+cleaned_2016gss_data$income [cleaned_2016gss_data$income == 10] <- "$15,000 to $19,999"
+cleaned_2016gss_data$income [cleaned_2016gss_data$income == 11] <- "$20,000 to $24,999"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == 12] <- "$25,000+"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == -100] <- "NA"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == -99] <- "No answer"
@@ -130,7 +133,7 @@ cleaned_2016gss_data$income [cleaned_2016gss_data$income == -98] <- "Do not know
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == -97] <- "Skipped"
 cleaned_2016gss_data$income [cleaned_2016gss_data$income == -90] <- "Refused"
 
-# Rename personal income to be more understandable 
+# Rename family income to be more understandable 
 cleaned_2016gss_data$rincome [cleaned_2016gss_data$rincome == 1] <- "<$1,000"
 cleaned_2016gss_data$rincome [cleaned_2016gss_data$rincome == 2] <- "$1,000 to $4,999"
 cleaned_2016gss_data$rincome [cleaned_2016gss_data$rincome == 3] <- "$1,000 to $4,999"
