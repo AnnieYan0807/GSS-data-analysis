@@ -84,7 +84,7 @@ cleaned_2016gss_data |>
 
 # personal income
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = factor(income, level=c('<$1,000', '$1,000 to $4,999', '$5,000 to $9,999', '9', '10', '11', '$25,000+', 'NA')))) +
+  ggplot(mapping = aes(x = factor(income, level=c('<$1,000', '$1,000 to $4,999', '$5,000 to $9,999', '$10,000 to $14,999', '$15,000 to $19,999', '$20,000 to $24,999', '$25,000+', 'NA')))) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Personal Income", y = "Number of Respondents")
