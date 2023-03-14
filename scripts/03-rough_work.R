@@ -25,6 +25,24 @@ cleaned_2016gss_data <- read_csv("outputs/data/cleaned_2016gss_data.csv")
 
 ### COMPARE SEX, RACE, DEGREE WITH AGE ###
 
+# age sex and race
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = age, fill = race)) +
+#     geom_bar() +
+#     theme_minimal() +
+#     theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+#     labs(
+#       x = "Age-group of respondent",
+#       y = "Number of respondents",
+#       fill = "Voted for"
+#     ) +
+#     facet_wrap(
+#       vars(sex),
+#       dir = "v",
+#       scales = "free"
+#     ) +
+#     theme(legend.position = "bottom")
+
 # age
 # cleaned_2016gss_data |>
 #   ggplot(mapping = aes(x = age)) +
