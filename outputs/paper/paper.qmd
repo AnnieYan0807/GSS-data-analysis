@@ -63,14 +63,28 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 
 ```{r}
 #| echo: false
-# Summary statistics of our GSS data 
-summ_gss <- cleaned_2016gss_data %>% 
-  select(age, sex, race, income, rincome, 
-         degree, childs, marital,
-         happy, wwwhr)
+# ATTEMPT: Summary statistics of our GSS data 
+# summ_gss <- cleaned_2016gss_data %>% 
+#   select(age, sex, race, income, rincome, 
+#          degree, childs, marital,
+#          happy, wwwhr)
 # sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')
-## the final line doesn't w
-#ork for some reason and i'm mad
+## the final line doesn't work for some reason and i'm mad
+
+# Table showing the first 10 rows of our cleaned dataset 
+cleaned_2016gss_data |>
+  select(age, sex, race, 
+         degree, childs, marital,
+         happy, wwwhr) |> 
+  slice(1:8) |> 
+  kable(caption='A subset of key features',
+        col.names = c("Age", "Sex", "Race", "Highest Degree", 
+                      "Number of Children", "Marital Status", "Happiness Level", 
+                      "Weekly Internet Hours"),
+        digits = 1,
+        booktabs = FALSE,
+        linesep = "") |>
+  kable_styling(full_width = T)
 ```
 
 ## Survey
