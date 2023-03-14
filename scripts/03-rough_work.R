@@ -140,6 +140,212 @@ cleaned_2016gss_data |>
   labs(x = "Weekly Total of Internet Use (Hours)", y = "Number of Respondents")
 
 
+### AVERAGES OF EACH VARIABLE AGAINST INTERNET USE HOURS ###
+
+## Age VS. Internet Hours ##
+mean_age<- cleaned_2016gss_data %>%
+  select(age,wwwhr) %>%
+  group_by(age)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "age", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_age <- melt(mean_age)  #the function melt reshapes it from wide to long
+mean_age <- mean_age[-10,]  # delete NA row
+
+# save mean data
+write_csv(mean_age, "outputs/data/mean_age.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_age |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Age Group",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+## Income VS. Internet Hours ##
+mean_income<- cleaned_2016gss_data %>%
+  select(rincome,wwwhr) %>%
+  group_by(rincome)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "rincome", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_income <- melt(mean_income)  #the function melt reshapes it from wide to long
+mean_income <- mean_income[-8,]  # delete NA row
+
+# save mean data
+write_csv(mean_income, "outputs/data/mean_income.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_income |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Total Family Income",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+## Education VS. Internet Hours ##
+mean_edu<- cleaned_2016gss_data %>%
+  select(degree,wwwhr) %>%
+  group_by(degree)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "degree", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_edu <- melt(mean_edu)  #the function melt reshapes it from wide to long
+mean_edu <- mean_edu[-6,]  # delete NA row
+
+# save mean data
+write_csv(mean_edu, "outputs/data/mean_edu.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_edu |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Highest Education Obtained",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+## Sex VS. Internet Hours ##
+mean_sex<- cleaned_2016gss_data %>%
+  select(sex,wwwhr) %>%
+  group_by(sex)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "sex", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_sex <- melt(mean_sex)  #the function melt reshapes it from wide to long
+
+# save mean data
+write_csv(mean_sex, "outputs/data/mean_sex.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_sex |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Sex",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+## Race VS. Internet Hours ##
+mean_race<- cleaned_2016gss_data %>%
+  select(race,wwwhr) %>%
+  group_by(race)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "race", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_race <- melt(mean_race)  #the function melt reshapes it from wide to long
+
+# save mean data
+write_csv(mean_race, "outputs/data/mean_race.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_race |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Race",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+## Marital Status VS. Internet Hours ##
+mean_marital<- cleaned_2016gss_data %>%
+  select(marital,wwwhr) %>%
+  group_by(marital)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "marital", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_marital <- melt(mean_marital)  #the function melt reshapes it from wide to long
+mean_marital <- mean_marital[-6,]  # delete NA row
+
+# save mean data
+write_csv(mean_marital, "outputs/data/mean_marital.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_marital |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Marital Status",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
+
+
+## Level of Happiness VS. Internet Hours##
+mean_happy<- cleaned_2016gss_data %>%
+  select(happy,wwwhr) %>%
+  group_by(happy)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "happy", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_happy <- melt(mean_happy)  #the function melt reshapes it from wide to long
+mean_happy <- mean_happy[-4,]  # delete NA row
+
+# save mean data
+write_csv(mean_happy, "outputs/data/mean_happy.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_happy |> ggplot(aes(x = variable, y = value)) + 
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Level of Happiness",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
 
 #### Tables ####
 # Summary statistics of our GSS data 
