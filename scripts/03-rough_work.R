@@ -342,6 +342,34 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 
 
 
+## Number of Children VS. Internet Hours ##
+mean_childs<- cleaned_2016gss_data %>%
+  select(childs,wwwhr) %>%
+  group_by(childs)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "childs", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_childs <- melt(mean_childs)  #the function melt reshapes it from wide to long
+mean_childs <- mean_childs[-10,]  # delete NA row
+
+# save mean data
+write_csv(mean_childs, "outputs/data/mean_marital.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_childs |> ggplot(aes(x = variable, y = value)) + 
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Number of Children",
+    y = "Internet Usage Hours"
+  )
+
+
+
+
 
 
 ## Level of Happiness VS. Internet Hours##
