@@ -71,8 +71,8 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 # sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')
 ## the final line doesn't work for some reason and i'm mad
 
-# Table showing the first 10 rows of our cleaned dataset 
-cleaned_2016gss_data |>
+# Table showing the first 10 rows of our cleaned dataset
+cleaned_2016gss_data |> 
   select(age, sex, race, 
          degree, childs, marital,
          happy, wwwhr) |> 
