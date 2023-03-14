@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Age Group,Sex,Race,Personal Income,Total Family Income,Highest Education Obtained,Number of Children,Marital Status,Level of Happiness,Weekly Total of Internet Use (Hours)
-=======
 age,sex,race,income,rincome,degree,childs,marital,happy,wwwhr
->>>>>>> 24d1e21b06020b2a17c22bb5bb0ce46db93a667e
 Ages 40 - 49,Male,White,NA,NA,Bachelor's,3,Married,Pretty happy,15
 Ages 60 - 69,Male,White,"$25,000+","$25,000+",High school,0,Never married,Pretty happy,5
 Ages 70 - 79,Male,White,"$25,000+",NA,Bachelor's,2,Married,Very happy,NA
