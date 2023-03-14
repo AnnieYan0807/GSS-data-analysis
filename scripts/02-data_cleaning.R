@@ -14,15 +14,17 @@ library(haven)
 
 
 #### Clean data ####
-# Import raw data 
+
+### main data set ###
+## Import raw data ##
 raw_2016gss_data <- read_csv("inputs/data/raw_2016gss_data.csv")
 
-# Focus on internet variables and demographic variables
+## Focus on internet variables and demographic variables ##
 cleaned_2016gss_data <- 
   raw_2016gss_data |> 
   select(age, sex, race, income, rincome, degree, childs, marital, happy, wwwhr)
 
-# Rename ages to age groups 
+##  Rename ages to age groups ##
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == 18] <- "Ages 18 - 20"
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == 19] <- "Ages 18 - 20"
 cleaned_2016gss_data$age [cleaned_2016gss_data$age == 20] <- "Ages 18 - 20"
@@ -200,6 +202,123 @@ cleaned_2016gss_data$happy [cleaned_2016gss_data$happy == -97] <- "Skipped"
 #  )
 
 
-#### Save data ####
+## Save data ##
 # change cleaned_data to whatever name you end up with at the end of cleaning
 write_csv(cleaned_2016gss_data, "outputs/data/cleaned_2016gss_data.csv")
+
+
+
+
+
+
+
+#### AVERAGES OF EACH VARIABLE AGAINST INTERNET USE HOURS ####
+
+## Age VS. Internet Hours ##
+mean_age<- cleaned_2016gss_data %>%
+  select(age,wwwhr) %>%
+  group_by(age)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "age", values_from = c("Mean_total"))
+
+# mutate from wide to long #
+mean_age <- melt(mean_age)  #the function melt reshapes it from wide to long
+mean_age <- mean_age[-10,]  # delete NA row
+
+# save mean data #
+write_csv(mean_age, "outputs/data/mean_age.csv")
+
+
+
+## Income VS. Internet Hours ##
+mean_income<- cleaned_2016gss_data %>%
+  select(rincome,wwwhr) %>%
+  group_by(rincome)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "rincome", values_from = c("Mean_total"))
+
+# mutate from wide to long 
+mean_income <- melt(mean_income)  #the function melt reshapes it from wide to long
+mean_income <- mean_income[-8,]  # delete NA row
+
+# save mean data
+write_csv(mean_income, "outputs/data/mean_income.csv")
+
+
+
+## Education VS. Internet Hours ##
+mean_edu<- cleaned_2016gss_data %>%
+  select(degree,wwwhr) %>%
+  group_by(degree)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "degree", values_from = c("Mean_total"))
+
+# mutate from wide to long 
+mean_edu <- melt(mean_edu)  #the function melt reshapes it from wide to long
+mean_edu <- mean_edu[-6,]  # delete NA row
+
+# save mean data
+write_csv(mean_edu, "outputs/data/mean_edu.csv")
+
+
+
+## Sex VS. Internet Hours ##
+mean_sex<- cleaned_2016gss_data %>%
+  select(sex,wwwhr) %>%
+  group_by(sex)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "sex", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_sex <- melt(mean_sex)  #the function melt reshapes it from wide to long
+
+# save mean data
+write_csv(mean_sex, "outputs/data/mean_sex.csv")
+
+
+
+## Race VS. Internet Hours ##
+mean_race<- cleaned_2016gss_data %>%
+  select(race,wwwhr) %>%
+  group_by(race)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "race", values_from = c("Mean_total"))
+
+# mutate from wide to long 
+mean_race <- melt(mean_race)  #the function melt reshapes it from wide to long
+
+# save mean data
+write_csv(mean_race, "outputs/data/mean_race.csv")
+
+
+
+## Marital Status VS. Internet Hours ##
+mean_marital<- cleaned_2016gss_data %>%
+  select(marital,wwwhr) %>%
+  group_by(marital)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "marital", values_from = c("Mean_total"))
+
+# mutate from wide to long 
+mean_marital <- melt(mean_marital)  #the function melt reshapes it from wide to long
+mean_marital <- mean_marital[-6,]  # delete NA row
+
+# save mean data
+write_csv(mean_marital, "outputs/data/mean_marital.csv")
+
+
+
+## Level of Happiness VS. Internet Hours##
+mean_happy<- cleaned_2016gss_data %>%
+  select(happy,wwwhr) %>%
+  group_by(happy)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "happy", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_happy <- melt(mean_happy)  #the function melt reshapes it from wide to long
+mean_happy <- mean_happy[-4,]  # delete NA row
+
+# save mean data
+write_csv(mean_happy, "outputs/data/mean_happy.csv")
+
