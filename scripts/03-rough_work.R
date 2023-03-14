@@ -172,7 +172,7 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
 
 
 
-## Income VS. Internet Hours ##
+## Total Family Income VS. Internet Hours ##
 mean_income<- cleaned_2016gss_data %>%
   select(rincome,wwwhr) %>%
   group_by(rincome)%>%
@@ -197,6 +197,32 @@ mean_income |> ggplot(aes(x = variable, y = value)) +
     y = "Internet Usage Hours"
   )
 
+
+
+## Personal Income VS. Internet Hours ##
+mean_pincome<- cleaned_2016gss_data %>%
+  select(income,wwwhr) %>%
+  group_by(income)%>%
+  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
+  pivot_wider(names_from = "income", values_from = c("Mean_total"))
+
+## mutate from wide to long 
+mean_pincome <- melt(mean_pincome)  #the function melt reshapes it from wide to long
+mean_pincome <- mean_pincome[-8,]  # delete NA row
+
+# save mean data
+write_csv(mean_pincome, "outputs/data/mean_income.csv")
+
+# use tidyverse-style code to pivot and summarise the data 
+mean_pincome |> ggplot(aes(x = variable, y = value)) + 
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Personal Income",
+    y = "Internet Usage Hours"
+  )
 
 
 
