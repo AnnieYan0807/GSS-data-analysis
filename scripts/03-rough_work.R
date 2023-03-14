@@ -23,24 +23,46 @@ cleaned_2016gss_data <- read_csv("outputs/data/cleaned_2016gss_data.csv")
 
 ### BAR GRAPHS OF EACH VARIABLE to show how many respondents for each option ###
 
+### COMPARE SEX, RACE, DEGREE WITH AGE ###
+
 # age
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = age)) +
-  geom_bar() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  labs(x = "Age", y = "Number of Respondents")
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = age)) +
+#   geom_bar() +
+#   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+#   labs(x = "Age", y = "Number of Respondents")
 
 # sex
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = sex)) +
+#   geom_bar() +
+#   labs(x = "Sex", y = "Number of Respondents")
+
+# age and sex
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = sex)) +
-  geom_bar() +
-  labs(x = "Sex", y = "Number of Respondents")
+  ggplot(mapping = aes(x = age, fill = sex)) + 
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  geom_bar(position = "dodge2")
 
 # race
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = race)) +
+#   geom_bar() +
+#   labs(x = "Race", y = "Number of Respondents")
+
+# age and race
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = race)) +
-  geom_bar() +
-  labs(x = "Race", y = "Number of Respondents")
+  ggplot(mapping = aes(x = age, fill = race)) + 
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  geom_bar(position = "dodge2")
+
+# age and education
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = age, fill = degree)) + 
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  geom_bar(position = "dodge2")
+
+### PERSONAL VS TOTAL FAMILY INCOME ###
 
 # personal income
 cleaned_2016gss_data |>
@@ -57,25 +79,34 @@ cleaned_2016gss_data |>
   labs(x = "Total Family Income", y = "Number of Respondents")
 
 # education
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = degree)) +
-  geom_bar() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  labs(x = "Education", y = "Number of Respondents")
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = degree)) +
+#   geom_bar() +
+#   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+#   labs(x = "Education", y = "Number of Respondents")
+
+### NUMBER OF CHILDREN AND MARITAL ###
 
 # number of children
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = childs)) +
-  geom_bar() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  labs(x = "Number of Children", y = "Number of Respondents")
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = childs)) +
+#   geom_bar() +
+#   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+#   labs(x = "Number of Children", y = "Number of Respondents")
 
 # marital status
+# cleaned_2016gss_data |>
+#   ggplot(mapping = aes(x = marital)) +
+#   geom_bar() +
+#   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+#   labs(x = "Marital Status", y = "Number of Respondents")
+
+# number of children and marital status
 cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = marital)) +
-  geom_bar() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  labs(x = "Marital Status", y = "Number of Respondents")
+  ggplot(mapping = aes(x = childs, fill = marital)) + 
+  geom_bar(position = "dodge2")
+
+### OTHER VARIABLES :) ###
 
 # level of happiness
 cleaned_2016gss_data |>
