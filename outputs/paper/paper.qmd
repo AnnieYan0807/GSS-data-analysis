@@ -56,7 +56,15 @@ mean_childs <- read.csv(here::here("outputs/data/mean_childs.csv"))
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
+The Internet has become a widely used computer network that allows for connection, to communicate, and access to information. By the mid 1990s, the Internet began reaching millions of users from around the world, where using a web of information, known as the World Wide Web, was a popular way of browsing information and facilitating communication online \[**cite**\]. Throughout the years, the different ways in which the Internet is used have expanded, where users could also make purchases through electronic commerce platforms and share different forms of media on social media platforms.
+
+This report aims to investigate the characteristics of those that use the Internet the most in comparison to those that use it the least. We wanted to understand the reasons as to why these factors are correlated with a higher internet use pattern and a lower internet use pattern. Our estimand is the mean number of weekly hours of internet usage of American adults. Using the survey data from the United States General Social Survey (GSS) recorded in 2016, we constructed different models on 6 factors and their relationship with total weekly hours of internet use: age, race, sex, marital status, number of children, and happiness.
+
+Through examining the different relationships between the various variables and the weekly total number of hours of internet use, we found that those of young adults tend to use the internet more than older adults. This may be due to physical, psychological, and social barriers when using the internet. We also found that those who have never been married use the internet more than others with different marital statuses. This could be correlated with age and the difference in reasons for using the internet. Additionally, as social media is a large part of internet usage, we found that the use of social media platforms has a negative impact on emotional health, demonstrating a possible correlation between low internet usage and a high level of happiness.
+
+Using the internet more regularly can improve the lives of individuals for its convenience and its accessibility. It is beneficial because it allows for easier and instantaneous communication, for learning, for increasing access to services, for encouraging connections and decreasing isolation, and for gathering information.
+
+The remainder of this report is structured as follows: Section 2 discusses the dataset of interest, including the methodology of the survey and its strengths and weaknesses, Section 3 presents the results through data visualizations, Section 4 discusses our findings, its weaknesses, and next steps, and Section 5 consists of the supplementary survey as an extension of the survey data to improve and enhance the study.
 
 # Data {#sec-data}
 
@@ -64,46 +72,45 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 
 ### Key Features
 
-The General Social Survey (GSS) is a national survey conducted in the United States of America that aims to better understand trends in the American adult population’s social characteristics and attitudes to better inform research and public policy. (@cite3) Beginning in 1972, this interview-based survey is conducted biennially on five key themes: gender and marriage, current affairs, civil liberties, politics, and religion and spirituality.(@cite4) The 2016 GSS is unique in that it also includes questions about internet-usage behaviours, which is why our analysis focuses on the GSS of this year. In 2016, there is data for 2,867 respondents for 961 variables. 
-
+The General Social Survey (GSS) is a national survey conducted in the United States of America that aims to better understand trends in the American adult population's social characteristics and attitudes to better inform research and public policy. (@cite3) Beginning in 1972, this interview-based survey is conducted biennially on five key themes: gender and marriage, current affairs, civil liberties, politics, and religion and spirituality.(@cite4) The 2016 GSS is unique in that it also includes questions about internet-usage behaviours, which is why our analysis focuses on the GSS of this year. In 2016, there is data for 2,867 respondents for 961 variables.
 
 ### Methodology
 
-The GSS’ target population is adults aged 18 years and older living in the United States. The sampling frame for the 2016 GSS is people living in the US aged 18+ who can speak English or Spanish and live in households. (@cite5) Thus, those living outside households (e.g. university dorms, nursing homes, institutions, military quarters) are not included in the GSS.(@cite6) The frame was created using the NORC National Sampling Frame, which first uses Census data to stratify US geographic regions by size and then chooses metropolitan areas and non-metropolitan counties within these regions, as the first stage of selection.(@cite6) In the second stage of selection, these metropolitan areas and non-metropolitan counties were stratified by race and income and further divided into blocks.(@cite6) Then, the sample is gathered by interviewers beginning from the northwest corner of a given block and moving from household to household until the equal-sex quota has been filled.(@cite6) 
+The GSS' target population is adults aged 18 years and older living in the United States. The sampling frame for the 2016 GSS is people living in the US aged 18+ who can speak English or Spanish and live in households. (@cite5) Thus, those living outside households (e.g. university dorms, nursing homes, institutions, military quarters) are not included in the GSS.(@cite6) The frame was created using the NORC National Sampling Frame, which first uses Census data to stratify US geographic regions by size and then chooses metropolitan areas and non-metropolitan counties within these regions, as the first stage of selection.(@cite6) In the second stage of selection, these metropolitan areas and non-metropolitan counties were stratified by race and income and further divided into blocks.(@cite6) Then, the sample is gathered by interviewers beginning from the northwest corner of a given block and moving from household to household until the equal-sex quota has been filled.(@cite6)
 
-Thus, the sample for the 2016 GSS was an area-probability sample gathered by the clustered sampling approach, as households are selected and then one random member from the household is selected to be included in the survey.(@cite6) A key tradeoff of this approach is that while cluster sampling is that while this method is much easier than completely random sampling, it can lead to bias in that there is more bias if the clusters are similar to each other. 
+Thus, the sample for the 2016 GSS was an area-probability sample gathered by the clustered sampling approach, as households are selected and then one random member from the household is selected to be included in the survey.(@cite6) A key tradeoff of this approach is that while cluster sampling is that while this method is much easier than completely random sampling, it can lead to bias in that there is more bias if the clusters are similar to each other.
 
-Non-response is handled by inputting it in the GSS dataset as one of the following options depending on the method of non-response: “NA”, “no answer”, “do not know”, or “skipped”. 
-
+Non-response is handled by inputting it in the GSS dataset as one of the following options depending on the method of non-response: "NA", "no answer", "do not know", or "skipped".
 
 ### Strengths & Weaknesses
 
 A strength of this 2016 GSS survey was that it was delivered both in English and in Spanish, allowing for a greater reach than had the survey just been conducted in English, like in the years previous to 2006.(@cite6) Of the people who had been excluded from this survey due to the English-only delivery, Spanish-speakers made up the majority, so this dual language delivery addressed this key exclusion. (@cite6)
 
-Another weakness of this sample is the lack of a gender variable, as the sample only provides a variable on sex. A gender variable would be more useful for data analysis, as it better reflects the respondent’s lived experience. The lack of a gender variable that better accommodates for people’s lived experience might lead to those who feel uncomfortable with the binary categories of sex to refrain from participating in the survey, leading to selection bias. 
+Another weakness of this sample is the lack of a gender variable, as the sample only provides a variable on sex. A gender variable would be more useful for data analysis, as it better reflects the respondent's lived experience. The lack of a gender variable that better accommodates for people's lived experience might lead to those who feel uncomfortable with the binary categories of sex to refrain from participating in the survey, leading to selection bias.
 
 Another weakness of the 2016 GSS survey is that the interviewer physically fills out the response for the respondent. This can potentially lead to measurement error. When the interviewer fills out the survey on behalf of the respondent, there may be a difference in the observed responses of the interviewer and the actual responses of the interviewee. This creates difficulty in verifying responses. (@cite13)
 
 ## Questionnaire
 
-A strength of the questionnaire was the clear wording of the question regarding Internet usage per week in hours. The survey question was formatted as follows: “Not counting e-mail, about how many minutes or hours per week do you use the Web? (Include time you spend visiting regular web sites and time spent using interactive Internet services like chat rooms, Usenet groups, discussion forums, bulletin boards, and the like.)”. The giving of examples was likely helpful in jogging the respondents’ memory of what exactly Internet usage can look like, as if one is flat out asked whether they use the Internet, it can be hard to conceptualize what that looks like. 
+A strength of the questionnaire was the clear wording of the question regarding Internet usage per week in hours. The survey question was formatted as follows: "Not counting e-mail, about how many minutes or hours per week do you use the Web? (Include time you spend visiting regular web sites and time spent using interactive Internet services like chat rooms, Usenet groups, discussion forums, bulletin boards, and the like.)". The giving of examples was likely helpful in jogging the respondents' memory of what exactly Internet usage can look like, as if one is flat out asked whether they use the Internet, it can be hard to conceptualize what that looks like.
 
-A key weakness of this questionnaire is the race variable, as it only allows for three options: “Black”, “White”, or “Other”, which does not take into account the largest ethnic minority group, Hispanics and Latino Americans, as well as other ethnic groups, such as Asians and Native Americans in the United States. In comparison, while not without fault itself, the US Census identifies 5 minimum categories of race (White, Black or African American, American Indian or Alaska Native, Asian, Native Hawaiian or Other Pacific Islander) and also allows for the reporting of more than one race. (@cite14)
+A key weakness of this questionnaire is the race variable, as it only allows for three options: "Black", "White", or "Other", which does not take into account the largest ethnic minority group, Hispanics and Latino Americans, as well as other ethnic groups, such as Asians and Native Americans in the United States. In comparison, while not without fault itself, the US Census identifies 5 minimum categories of race (White, Black or African American, American Indian or Alaska Native, Asian, Native Hawaiian or Other Pacific Islander) and also allows for the reporting of more than one race. (@cite14)
 
 This questionnaire has a limitation in terms of selection bias because of our limited ability to reach the entire population. The respondents who receive the questionnaire are likely to share a similar background with us, which does not achieve a random selection of the population, which is all U.S. citizens. Our study may also be susceptible to volunteering bias because the data is reliant on participants willingly providing their answers, which could lead to biased results.
 
 Relatedly, another weakness of this questionnaire is that questions are allowed non-responses. This results in truncated data, in which the dataset has been incompletely collected. Having no response for a question can only be observed as null, despite there being a possible actual value. (@cite15) There are a variety of reasons as to why a respondent did not want to answer a question, but can only be observed as a non-response to avoid biased assumptions and inaccurate results.
 
-
 ## Overview of Data
 
 ### Data Source
 
-Max
+In this report, the 2867 observations from the 2016 United States General Social Survey are used. The survey data was obtained from the University of Chicago National Opinion Research Centre (NORC) \[**cite**\]. 
+
+This report was created using the R statistical programming language \[**cite**\]. The here package was utilized to retrieve files from another folder within the same R project. \[**cite**\]. For the results and analysis of this report, all figures were created using the tidyverse package \[**cite**\]. Additionally, the tables were created using the packages vtable \[**cite**\] and kableExtra \[**cite**\], and the graphs were created using the packages lessR \[**cite**\], dplyr \[**cite**\], tidyr \[**cite**\], reshape2 \[**cite**\], and ggplot2 \[**cite**\].
 
 ### Variables of Interest
 
-Max
+There are **7** variables that were selected to conduct the analysis of this report. We aimed to focus on **6** particular factors that supposedly affect the amount of Internet use: age, sex, race, number of children, marital status, and happiness. In this paper, we wanted to investigate the influence of these various factors on the total number of hours of weekly Internet usage. The packages tidyverse \[**cite**\], haven \[**cite**\], and reshape2 \[**cite**\] were used to clean the dataset by grouping or converting the questionnaire responses into categorical or textual answers.
 
 ```{r}
 #| echo: false
@@ -123,7 +130,7 @@ cleaned_2016gss_data |>
   kable_styling(full_width = T)
 ```
 
-Table :)
+Table 1 shows the first 10 rows of the cleaned dataset. The variables, Number of Children and Weekly Internet Hours, are recorded as a numerical value. Weekly Internet Hours has a maximum value of 168, as there are only 168 hours in a week. Age is also recorded as a numerical value, but is cleaned to represent ages in groups. The other variables, Sex, Race, Highest Degree, Number of Children, Marital Status and Happiness Level, are all recorded as a textual option for respondents to choose from.
 
 ```{r}
 #| label: fig-agesidebyside
@@ -148,6 +155,8 @@ cleaned_2016gss_data |>
 
 @fig-agesidebyside
 
+Most of the respondents of the 2016 GSS are adults ranging from ages 21 to 69 years old. The size of each age group between that range oscillates within the right skewed distribution. The largest age group respondent size is 50 to 59 years old. By graphing the variables, age and sex in \[FIG #\], we observe that there are more female adults in each age group participating in this survey than there are male adults. The overall distribution is skewed to the right. The visualization of age and race in \[FIG #\] demonstrates that the respondents that identify with the White racial group comprises most of the respondent sample. This racial group is also shown to have a near-symmetrical distribution. Conversely, the other racial groups in this survey, Black and Other, are significantly the minority of the survey sample. The Black and Other racial groups are skewed to the right, illustrating that there are less individuals that identify with these racial groups in the older age groups. According to the 2020 census surveys, the most common racial group in America is White or Caucasian, which means that the 2016 GSS data on this group provides an accurate representation of American society.
+
 ```{r}
 #| label: fig-childsandmarital
 #| fig-cap: Caption
@@ -160,6 +169,8 @@ cleaned_2016gss_data |>
 ```
 
 @fig-childsandmarital
+
+According to \[FIG #\], respondents who are married have a right skew distribution of the number of children they have, where the mode of the data is having two children. As for individuals that responded as never having been married, the distribution was exponential, in which the mode of this distribution is having zero children. As the number of children increases, the number of individuals who have never been married decreases. The distribution of the other minority marital groups are skewed to the right. Overall, most survey respondents have zero children.
 
 ```{r}
 #| label: fig-happiness
@@ -175,6 +186,8 @@ cleaned_2016gss_data |>
 ```
 
 @fig-happiness
+
+Considering general happiness, \[FIG #\] exhibits a left skew distribution. This illustrates that a significant proportion of the respondents indicate that they are fairly happy and an adequate proportion indicate that they are very happy. With a limited number of options to measure happiness quantitatively, it is difficult to discern a distribution on varying levels of happiness.
 
 # Results
 
@@ -294,27 +307,27 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
 
 # Discussion {#sec-discussion}
 
-## Aging reduces the amount of hours spent using the Internet {#sec-first-point}
+## Aging Reduces the Amount of Hours Spent Using the Internet {#sec-first-point}
 
+Based on the results, we find that as aging increases, the amount of weekly total hour Internet use decreases. As shown in \@fig-ageandinternet, the majority of respondents that have the highest number of weekly hours of Internet use are those between the ages of 18 and 39 years old. The three age groups within this range have the three largest Internet usage. By observing the tail of the right-skewed distribution in \@fig-ageandinternet, it illustrates that as the age of respondents increases from the age range 20-29 years old, the use of the Internet is reduced. In this age of developing technology and digital services, the Internet has become a widely used source for information, commerce, communication, and entertainment. According to our results, many young adults are commonly online. This may be because they have the functional capabilities of learning how to use the Internet and actually using the Internet. Its ease and convenience allows users to have access to instant information and communication, popularly used by young adults. In comparison, those of older age tend to use the Internet less. The reason for this may be because, as individuals age, they experience declining changes in their physical, mental, and social abilities, affecting their functional capacities. Research has shown that 23% of older adults indicate that having a physical or health condition makes reading difficult or challenging \[**cite**\]. This shows that those in older age groups have barriers when it comes to using the Internet. Although using the Internet is valuable to those of older age, as it helps them connect with family remotely and experience socialization, the factors that make using the Internet challenging keeps them from increasing their weekly use. Many older adults have expressed that, when using technology and digital services, they would need assistance \[**cite**\]. Despite seniors being less likely than the rest of the population to go online, once they understand how to use it, it becomes a part of their everyday lives. Research has shown that 71% of seniors go online almost everyday and 11% go online three or five times weekly \[**cite**\]. While many older adults understand the beneficial aspect of the Internet, there still remain non-users of the Internet due to disabilities that come with aging \[**cite**\].
 
 ## Second discussion point {#sec-second-point}
 
 ### Marital Status
-As seen in @fig-maritalandinternet, people who have never married use the Internet significantly more than those who are married or who are widowed. This trend could partially be explained by the correlation between age and being married, as those who have never been married are more likely to be younger. In the United States in 2016, at the time this survey data was collected, the median age of marriage was 28 years old for women and 30 years old for men. (@cite19) This statistic is consistent with the findings of @fig-ageandinternet, which shows that Internet usage is highest for people aged 21 to 29, people who are just prior to the median age of marriage. This explanation is supported by the finding that widowed people use the Internet the least, out of all of the marital categories. Because widowhood is more likely in people who are older, the correlation between age and Internet use is further reflected here. (@cite20) Thus, the relationship between marriage vs. non-marriage and Internet use, in which those who have never been married use the Internet more than those who are married, is related to the inverse relationship between age and amount of average Internet use stated in Section 4.1 above. 
 
-This trend of younger and non-married people using the Internet more than older, married people could be further explained by the use of online and digital dating apps by younger, non-married people as ways to connect with people romantically. The United States is one of the countries that uses online dating sites and apps the most, suggesting that online dating is normalized in American culture and partially explaining why younger, non-married people use the Internet much more than their older, married counterparts.(@cite21) The widespread usage of handheld mobile devices that has become the norm for all age groups, but especially younger people who are more likely to use social media and online dating apps, furthers this. 
-	
+As seen in @fig-maritalandinternet, people who have never married use the Internet significantly more than those who are married or who are widowed. This trend could partially be explained by the correlation between age and being married, as those who have never been married are more likely to be younger. In the United States in 2016, at the time this survey data was collected, the median age of marriage was 28 years old for women and 30 years old for men. (@cite19) This statistic is consistent with the findings of @fig-ageandinternet, which shows that Internet usage is highest for people aged 21 to 29, people who are just prior to the median age of marriage. This explanation is supported by the finding that widowed people use the Internet the least, out of all of the marital categories. Because widowhood is more likely in people who are older, the correlation between age and Internet use is further reflected here. (@cite20) Thus, the relationship between marriage vs. non-marriage and Internet use, in which those who have never been married use the Internet more than those who are married, is related to the inverse relationship between age and amount of average Internet use stated in Section 4.1 above.
+
+This trend of younger and non-married people using the Internet more than older, married people could be further explained by the use of online and digital dating apps by younger, non-married people as ways to connect with people romantically. The United States is one of the countries that uses online dating sites and apps the most, suggesting that online dating is normalized in American culture and partially explaining why younger, non-married people use the Internet much more than their older, married counterparts.(@cite21) The widespread usage of handheld mobile devices that has become the norm for all age groups, but especially younger people who are more likely to use social media and online dating apps, furthers this.
+
 A third contributing factor to this trend could be that non-married individuals feel more isolated due to not meeting societal norms of marriage and turn to the Internet to seek connections and community. People who live in societies in which marriage is socially expected, such as the United States, can feel isolated, for which using the Internet can help them feel a sense of belonging that they find missing in their lives.(@cite22)
 
+### Number of Children
 
-### Number of Children 
+@fig-childrenandinternet demonstrates the relationship between number of children of respondents and average weekly Internet use. This graph shows that people with no children use the Internet more than people who have children. Like Section 4.2.1 above, this could be due to the correlation between age and having children: those who are older are more likely to have children than those who are younger. The median age at which women have children is 30 years of age, which is consistent with the findings of @fig-ageandinternet, which states that people in their 20s use the Internet the most.(@cite23) This generally inverse relationship between number of children and Internet use, is related to the inverse relationship between age and amount of average Internet use stated in Section 4.1 above. The outlier of the "8+" children category has a high Internet usage because there were only 6 people who responded about their Internet usage in that category (compared to the approximately 500 people who responded about their Internet usage in the "0" children category), such that the result was skewed by one participant who reported 60 hours of Internet use.
 
-@fig-childrenandinternet demonstrates the relationship between number of children of respondents and average weekly Internet use. This graph shows that people with no children use the Internet more than people who have children. Like Section 4.2.1 above, this could be due to the correlation between age and having children: those who are older are more likely to have children than those who are younger. The median age at which women have children is 30 years of age, which is consistent with the findings of @fig-ageandinternet, which states that people in their 20s use the Internet the most.(@cite23) This generally inverse relationship between number of children and Internet use, is related to the inverse relationship between age and amount of average Internet use stated in Section 4.1 above. The outlier of the “8+” children category has a high Internet usage because there were only 6 people who responded about their Internet usage in that category (compared to the approximately 500 people who responded about their Internet usage in the “0” children category), such that the result was skewed by one participant who reported 60 hours of Internet use. 
+This trend could also be explained by the amount of personal time that people have for themselves. Personal use is one of the main activities of Internet use (including instant messaging and social media), and people with children are less likely to have time for themselves as they spend time caring for their children.(@cite24) This likely increases with more children. Thus, the relatively inverted relationship between number of children and Internet use could be partially explained by the inverted relationship between number of children and personal time.
 
-This trend could also be explained by the amount of personal time that people have for themselves. Personal use is one of the main activities of Internet use (including instant messaging and social media), and people with children are less likely to have time for themselves as they spend time caring for their children.(@cite24) This likely increases with more children. Thus, the relatively inverted relationship between number of children and Internet use could be partially explained by the inverted relationship between number of children and personal time. 
-
-However, the Internet has increasingly come to be a key resource for parenting, both for getting information and for receiving support.(@cite25) This explains why average Internet use is relatively similar across people with 1 child to 5 children. 
-
+However, the Internet has increasingly come to be a key resource for parenting, both for getting information and for receiving support.(@cite25) This explains why average Internet use is relatively similar across people with 1 child to 5 children.
 
 ## Third discussion point {#sec-third-point}
 
