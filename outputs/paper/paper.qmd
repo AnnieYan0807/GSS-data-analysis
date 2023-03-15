@@ -18,6 +18,7 @@ bibliography: references.bib
 #| include: false
 #| warning: false
 #| message: false
+
 # Set up workspace 
 #install.packages("kableExtra")
 #install.packages("tidyverse")
@@ -27,7 +28,6 @@ bibliography: references.bib
 #install.packages("knitr")
 #install.packages("haven")
 #install.packages("vtable")
-
 
 library(kableExtra)
 library(tidyverse)
@@ -41,17 +41,17 @@ library(vtable)
 
 ```{r}
 #| include: false
+
 # Import cleaned data from the outputs folder, originally imported via the 01-download_data.R file
 cleaned_2016gss_data <- read.csv(here::here("outputs/data/cleaned_2016gss_data.csv"))
 
-## import averaged variable datasets 
+## Import averaged variable datasets from the outputs folder, originally created in the 02-data_cleaning.R file
 mean_age <- read.csv(here::here("outputs/data/mean_age.csv"))
 mean_happy <- read.csv(here::here("outputs/data/mean_happy.csv"))
 mean_marital <- read.csv(here::here("outputs/data/mean_marital.csv"))
 mean_race <- read.csv(here::here("outputs/data/mean_race.csv"))
 mean_sex <- read.csv(here::here("outputs/data/mean_sex.csv"))
 mean_childs <- read.csv(here::here("outputs/data/mean_childs.csv"))
-
 ```
 
 # 1 Introduction
@@ -92,6 +92,7 @@ Max
 
 ```{r}
 #| echo: false
+
 # Table showing the first 10 rows of our cleaned dataset
 cleaned_2016gss_data |> 
   select(wwwhr, age, sex, race, 
@@ -117,13 +118,13 @@ Table :)
 #| echo: false
 #| warning: false
 
-# bar graph showing relationship between age and sex
+# Bar graph showing relationship between age and sex
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = sex)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   geom_bar(position = "dodge2")
 
-# bar graph showing relationship between age and sex
+# Bar graph showing relationship between age and race 
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = race)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
@@ -137,7 +138,7 @@ cleaned_2016gss_data |>
 #| fig-cap: Caption
 #| echo: false
 
-# bar graph showing relationship between number of children and marital status
+# Bar graph showing relationship between number of children and marital status
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = childs, fill = marital)) + 
   geom_bar(position = "dodge2")
@@ -150,13 +151,12 @@ cleaned_2016gss_data |>
 #| fig-cap: Caption
 #| echo: false
 
-# bar graph showing the different levels of happiness and number of respondents for each response
+# Bar graph showing the different levels of happiness and number of respondents for each response
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = happy)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   labs(x = "Level of Happiness", y = "Number of Respondents")
-
 ```
 
 @fig-happiness
@@ -168,7 +168,7 @@ cleaned_2016gss_data |>
 #| fig-cap: Average Weekly Total of Internet Use by Age Group
 #| echo: false
 
-# use tidyverse-style code to pivot and summarise the data 
+# Bar graph showing relationship between age and internet use, using tidyverse-style code to pivot and summarise the data 
 mean_age |> ggplot(aes(x = variable, y = value)) + 
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
@@ -178,7 +178,6 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
     x = "Age Group",
     y = "Average Internet Usage Hours"
   )
-
 ```
 
 @fig-ageandinternet depicting the relationship between age and average weekly internet usage. The data on internet usage hours for various age groups are averaged to reduce any bias due to selectively chosen survey responses. The curve on the graph is skewed to the right, with its peak occurring in the 21 to 29 age group, which has the highest internet usage of approximately 18 hours per week. Subsequently, internet usage gradually declines with age, with the lowest usage recorded in the 89+ age group at an average of 2 hours per week. This graph indicates that young adults, particularly those aged 21 to 29, spend more time on the internet. As people age, their internet usage tends to decline gradually. The graph suggests a statistically significant correlation between age and internet usage, and the trend is relatively clear.
@@ -188,8 +187,7 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
 #| fig-cap: Average Weekly Total of Internet Use by Gender
 #| echo: false
 
-
-# use tidyverse-style code to pivot and summarise the data 
+# Bar graph showing relationship between sex and internet use, using tidyverse-style code to pivot and summarise the data 
 mean_sex |> ggplot(aes(x = variable, y = value)) + 
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
@@ -199,8 +197,6 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
     x = "Sex",
     y = "Average Internet Usage Hours"
   )
-
-
 ```
 
 @fig-genderandinternet illustrates the average weekly internet usage of two genders. Similarly to the age and internet usage graph, the data on internet usage hours for different genders are averaged to minimize any volunteering bias. The data shows that there is no substantial difference between male and female internet usage. Female participants have an average of 12.9 hours per week spent on the internet, while male participants have an slightly higher average of 13.3 hours per week spent on the internet. However, the gender selection in this survey is limited, and further discussion regarding this limitation can be found in the ethics and bias section @sec-bias.
@@ -210,7 +206,7 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
 #| fig-cap: Average Weekly Total of Internet Use by Race
 #| echo: false
 
-# use tidyverse-style code to pivot and summarise the data 
+# Bar graph showing relationship between race and internet use, using tidyverse-style code to pivot and summarise the data 
 mean_race |> ggplot(aes(x = variable, y = value)) + 
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
@@ -220,7 +216,6 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
     x = "Race",
     y = "Average Internet Usage Hours"
   )
-
 ```
 
 @fig-raceandinternet displays the average weekly internet usage of individuals belonging to different races. Based on the data, we can observe that individuals who do not identify as either Black or White have the highest internet usage, with an average of 15.5 hours per week. African American individuals have a similar level of internet usage, also averaging 15.2 hours per week. In contrast, white individuals tend to have the lowest internet usage, with an average of 12.3 hours per week.
@@ -230,7 +225,7 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
 #| fig-cap: Average Weekly Total of Internet Use by Children
 #| echo: false
 
-# use tidyverse-style code to pivot and summarise the data 
+# Bar graph showing relationship between number of children and internet use, using tidyverse-style code to pivot and summarise the data 
 mean_childs |> ggplot(aes(x = variable, y = value)) + 
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
@@ -249,7 +244,7 @@ Max
 #| fig-cap: Average Weekly Total of Internet Use by Marital Status
 #| echo: false
 
-# use tidyverse-style code to pivot and summarise the data 
+# Bar graph showing relationship between marital status and internet use, using tidyverse-style code to pivot and summarise the data 
 mean_marital |> ggplot(aes(x = variable, y = value)) + 
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
@@ -268,7 +263,7 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 #| fig-cap: Average Weekly Total of Internet Use by Level of Happiness
 #| echo: false
 
-# use tidyverse-style code to pivot and summarise the data 
+# Bar graph showing relationship between level of happiness and internet use, using tidyverse-style code to pivot and summarise the data 
 mean_happy |> ggplot(aes(x = variable, y = value)) + 
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
