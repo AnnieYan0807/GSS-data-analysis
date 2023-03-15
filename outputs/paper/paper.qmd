@@ -334,7 +334,7 @@ In a previous study, we found a potential correlation between happiness and inte
 
 We suspect this finding may be attributed to various factors related to social media usage, given that people spend an average of 2 hours and 31 minutes daily on social media.(@citea1) Our secondary research indicates that certain aspects of the internet, such as social media, can negatively impact psychological health. Excessive use of social media can result in addiction, anxiety, depression, or isolation. Furthermore, social media can become a substitute for real-life social interaction, causing individuals to feel lonely and disconnected. Comparing oneself unfavorably with internet social figures can also lead to low self-esteem and negative body image, while cyberbullying can have potential mental health implications for individuals who spend long hours on the internet. A study by the University of Pennsylvania in 2018 found that reducing social media use to 30 minutes a day resulted in a significant reduction in anxiety, depression, loneliness, and sleep problems.(@citea2)
 
-Additionally, research suggests that spending more time online can make children less happy with their lives. For instance, a study by the University of Sheffield concluded that spending an extra hour a day on social networks reduces the probability of being completely happy with life overall by approximately 14 percentage points. Thus, we have reason to believe that internet usage, particularly social media usage, can have a negative impact on happiness levels to some extent and affect the relationship between happiness and internet usage.
+Additionally, research suggests that spending more time online can make children less happy with their lives. For instance, a study by the University of Sheffield concluded that spending an extra hour a day on social networks reduces the probability of being completely happy with life overall by approximately 14 percentage points.(@citea3) Thus, we have reason to believe that internet usage, particularly social media usage, can have a negative impact on happiness levels to some extent and affect the relationship between happiness and internet usage.
 
 Another factor that could contribute to the correlation between happiness and internet usage is a fulfilling real life. Engaging in offline activities, such as spending time with loved ones, pursuing hobbies, or achieving personal goals, can be more rewarding than spending time online. This can lead individuals to prioritize fulfilling activities over aimless scrolling through the internet and decrease their need for validation or connection through social media and other online platforms. Thus, individuals who are fulfilled in their offline lives may have lower internet usage hours and higher happiness levels.
 
@@ -343,6 +343,20 @@ Another factor that could contribute to the correlation between happiness and in
 
 
 ## Weaknesses and next steps {#sec-weaknesses}
+
+### Weakness
+A key weakness in our analysis was that we removed non-responses from our data, which may have made our data for Internet use not as accurate in reflecting what the actual population’s Internet use looks like. A central reason as to why participant’s may have chosen not to respond to the question about Internet use could be embarrassment: admitting that one spends too much time on the Internet could be embarrassing, so those who have higher Internet usage are more likely not to respond to this question. This is a very real concern as Internet addiction is increasing in our increasingly digital world, and several countries have even identified it as a public health concern. (@cite26)
+
+Another weakness in our analysis is the self-reported nature of the results, meaning there was some bias in questions with ambiguous word choice, such as our happiness variable. The definition of the different response options to the happiness variable survey question of “not so happy”, “fairly happy”, and “very happy” will vary depending on the individual, as well as the day or time of day. Thus, our analysis of the relationship between happiness and Internet use may be biased. 
+
+
+### Next Steps
+To address our second identified weakness in Section 4.4.2 above, implementing a supplementary survey with more detailed questions, particularly about race and gender (as mentioned in Section 2.2) and more straightforward question answers (e.g. a number scale for happiness variable) would allow for more in-depth analysis. 
+
+In addition, conducting further research on the different uses of the Internet based on population groups would be a reasonable next step, now that we have determined which population groups use the Internet the most and least. 
+
+Finally, looking at how COVID-19 impacted Internet usage would be a particularly interesting avenue of research to pursue, especially with the increase in online activities (e.g. work from home, online classes, widespread use of Zoom, etc.). It would be interesting to compare our analysis of American population groups that used the Internet the most in 2016, with 2020 (during the COVID-19 pandemic) and with 2022 (post-COVID-19 pandemic). 
+
 
 ## Ethics and Bias {#sec-bias}
 
