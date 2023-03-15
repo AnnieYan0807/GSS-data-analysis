@@ -64,7 +64,7 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 
 ## 2.1 Survey
 
-Saku :)
+Saku :) :)
 
 ### 2.1.1 Key Features
 
