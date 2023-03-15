@@ -317,6 +317,17 @@ However, the Internet has increasingly come to be a key resource for parenting, 
 
 
 ## Third discussion point {#sec-third-point}
+In a previous study, we found a potential correlation between happiness and internet usage. Specifically, individuals who reported lower internet usage tended to have higher levels of happiness. There are few reasons may be contribute to this finding. 
+
+We suspect this finding may be attributed to various factors related to social media usage, given that people spend an average of 2 hours and 31 minutes daily on social media.(@citea1) Our secondary research indicates that certain aspects of the internet, such as social media, can negatively impact psychological health. Excessive use of social media can result in addiction, anxiety, depression, or isolation. Furthermore, social media can become a substitute for real-life social interaction, causing individuals to feel lonely and disconnected. Comparing oneself unfavorably with internet social figures can also lead to low self-esteem and negative body image, while cyberbullying can have potential mental health implications for individuals who spend long hours on the internet. A study by the University of Pennsylvania in 2018 found that reducing social media use to 30 minutes a day resulted in a significant reduction in anxiety, depression, loneliness, and sleep problems.(@citea2)
+
+Additionally, research suggests that spending more time online can make children less happy with their lives. For instance, a study by the University of Sheffield concluded that spending an extra hour a day on social networks reduces the probability of being completely happy with life overall by approximately 14 percentage points. Thus, we have reason to believe that internet usage, particularly social media usage, can have a negative impact on happiness levels to some extent and affect the relationship between happiness and internet usage.
+
+Another factor that could contribute to the correlation between happiness and internet usage is a fulfilling real life. Engaging in offline activities, such as spending time with loved ones, pursuing hobbies, or achieving personal goals, can be more rewarding than spending time online. This can lead individuals to prioritize fulfilling activities over aimless scrolling through the internet and decrease their need for validation or connection through social media and other online platforms. Thus, individuals who are fulfilled in their offline lives may have lower internet usage hours and higher happiness levels.
+
+
+
+
 
 ## Weaknesses and next steps {#sec-weaknesses}
 
