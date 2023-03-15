@@ -11,6 +11,7 @@
 #### Workspace setup ####
 library(tidyverse)
 library(haven)
+library(reshape2)
 
 
 #### Clean data ####
