@@ -161,18 +161,6 @@ mean_age <- mean_age[-10,]  # delete NA row
 # save mean data #
 write_csv(mean_age, "outputs/data/mean_age.csv")
 
-## Education VS. Internet Hours ##
-mean_edu<- cleaned_2016gss_data %>%
-  select(degree,wwwhr) %>%
-  group_by(degree)%>%
-  summarise(Mean_total = mean(wwwhr , na.rm=TRUE) )%>%
-  pivot_wider(names_from = "degree", values_from = c("Mean_total"))
-# mutate from wide to long 
-mean_edu <- melt(mean_edu)  #the function melt reshapes it from wide to long
-mean_edu <- mean_edu[-6,]  # delete NA row
-# save mean data
-write_csv(mean_edu, "outputs/data/mean_edu.csv")
-
 ## Sex VS. Internet Hours ##
 mean_sex<- cleaned_2016gss_data %>%
   select(sex,wwwhr) %>%
