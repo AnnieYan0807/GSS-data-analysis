@@ -104,14 +104,13 @@ Max
 
 # Table showing the first 10 rows of our cleaned dataset
 cleaned_2016gss_data |> 
-  select(age, sex, race, 
+  select(wwwhr, age, sex, race, 
          degree, childs, marital,
-         happy, wwwhr) |> 
+         happy) |> 
   slice(1:8) |> 
   kable(caption='A subset of key features',
-        col.names = c("Age", "Sex", "Race", "Highest Degree", 
-                      "Number of Children", "Marital Status", "Happiness Level", 
-                      "Weekly Internet Hours"),
+        col.names = c("Weekly Internet Hours", "Age", "Sex", "Race", "Highest Degree", 
+                      "Number of Children", "Marital Status", "Happiness Level"),
         digits = 1,
         booktabs = FALSE,
         linesep = "") |>
