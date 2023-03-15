@@ -46,9 +46,7 @@ cleaned_2016gss_data <- read.csv(here::here("outputs/data/cleaned_2016gss_data.c
 
 ## import averaged variable datasets 
 mean_age <- read.csv(here::here("outputs/data/mean_age.csv"))
-mean_edu <- read.csv(here::here("outputs/data/mean_edu.csv"))
 mean_happy <- read.csv(here::here("outputs/data/mean_happy.csv"))
-mean_income <- read.csv(here::here("outputs/data/mean_income.csv"))
 mean_marital <- read.csv(here::here("outputs/data/mean_marital.csv"))
 mean_race <- read.csv(here::here("outputs/data/mean_race.csv"))
 mean_sex <- read.csv(here::here("outputs/data/mean_sex.csv"))
@@ -94,14 +92,6 @@ Max
 
 ```{r}
 #| echo: false
-# ATTEMPT: Summary statistics of our GSS data 
-# summ_gss <- cleaned_2016gss_data %>% 
-#   select(age, sex, race, income, rincome, 
-#          degree, childs, marital,
-#          happy, wwwhr)
-# sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')
-## the final line doesn't work for some reason and i'm mad
-
 # Table showing the first 10 rows of our cleaned dataset
 cleaned_2016gss_data |> 
   select(wwwhr, age, sex, race, 
@@ -236,49 +226,6 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
 @fig-raceandinternet displays the average weekly internet usage of individuals belonging to different races. Based on the data, we can observe that individuals who do not identify as either Black or White have the highest internet usage, with an average of 15.5 hours per week. African American individuals have a similar level of internet usage, also averaging 15.2 hours per week. In contrast, white individuals tend to have the lowest internet usage, with an average of 12.3 hours per week.
 
 ```{r}
-#| label: fig-personalincomeandinternet
-#| fig-cap: Average Weekly Total of Internet Use by Personal Income
-#| echo: false
-
-# personal income
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = factor(income, level=c('<$1,000', '$1,000 to $4,999', '$5,000 to $9,999', '9', '10', '11', '$25,000+', 'NA')))) +
-  geom_bar() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  labs(x = "Personal Income", y = "Number of Respondents")
-
-```
-
-Max - might emit...
-
-```{r}
-#| label: fig-familyincomeandinternet
-#| fig-cap: Average Weekly Total of Internet Use by Family Income
-#| echo: false
-
-# use tidyverse-style code to pivot and summarise the data 
-mean_income |> ggplot(aes(x = variable, y = value)) + 
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1), 
-        axis.line = element_line(colour = "black"),
-        title = element_text(size = 12)) +
-  labs(
-    x = "Average Total Family Income",
-    y = "Internet Usage Hours"
-  )
-
-# total family income
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = factor(rincome, level=c('<$1,000', '$1,000 to $4,999', '$5,000 to $9,999', '$10,000 to $14,999', '$15,000 to $19,999', '$20,000 to $24,999', '$25,000+', 'NA')))) +
-  geom_bar() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  labs(x = "Total Family Income", y = "Number of Respondents")
-
-```
-
-Max - might emit
-
-```{r}
 #| label: fig-childrenandinternet
 #| fig-cap: Average Weekly Total of Internet Use by Children
 #| echo: false
@@ -315,25 +262,6 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 ```
 
 @fig-maritalandinternet displays the relationship between marital status and internet usage in 2016. In accordance with popular opinion, people who have never been married use the Internet the most. Most notably, people who are widowed use the Internet the least, perhaps due to the correlation between age and widowhood.
-
-```{r}
-#| label: fig-degreeandinternet
-#| fig-cap: Weekly Total of Internet Use by Highest Education Obtained
-#| echo: false
-
-# use tidyverse-style code to pivot and summarise the data 
-mean_edu |> ggplot(aes(x = variable, y = value)) + 
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 45,hjust=1), 
-        axis.line = element_line(colour = "black"),
-        title = element_text(size = 12)) +
-  labs(
-    x = "Highest Education Obtained",
-    y = "Internet Usage Hours"
-  )
-```
-
-@fig-degreeandinternet displays the relationship between highest level of education obtained by the respondent and internet usage in 2016. Those who have completed a less than high school degree use the internet the least.
 
 ```{r}
 #| label: fig-happyandinternet
