@@ -117,12 +117,10 @@ There are **7** variables that were selected to conduct the analysis of this rep
 
 # Table showing the first 10 rows of our cleaned dataset
 cleaned_2016gss_data |> 
-  select(wwwhr, age, sex, race, 
-         degree, childs, marital,
-         happy) |> 
-  slice(1:8) |> 
+  select(wwwhr, age, sex, race, childs, marital, happy) |> 
+  slice(1:7) |> 
   kable(caption='A subset of key features',
-        col.names = c("Weekly Internet Hours", "Age", "Sex", "Race", "Highest Degree", 
+        col.names = c("Weekly Internet Hours", "Age", "Sex", "Race",;
                       "Number of Children", "Marital Status", "Happiness Level"),
         digits = 1,
         booktabs = FALSE,
@@ -362,8 +360,6 @@ Finally, looking at how COVID-19 impacted Internet usage would be a particularly
 
 Based on the data collection methodology provided by GSS, we have identified some potential biases that could arise. The survey's target population consists of adults aged 18 and above who reside in households in the United States. Since this sampling approach focuses only on a specific age group, our analysis may be biased with respect to the age factor. Gss also claimed to be strictly voluntary. While this approach supports research ethics by respecting individuals' autonomy and right to privacy, it can also result in volunteer bias. GSS sample are from a mix of urban, suburban, and rural geographic areas, but only a few thousand respondents are interviewed in the main study. The small sample size may be lead to chance findings. It is likely not statistically significant enough. We also suspect potential sampling bias may screw our end result. However, with not enough information disclosed, we are unable to confirm that. The gender and race options provided by the GSS survey are limited. Participants are only given the options of selecting either "Female" or "Male" for gender, and "Blacks," "Whites," or "Others" for race. This narrow selection does not provide an adequate range of options for survey participants.
 
-# Appendix {.unnumbered}
-
-# Additional details
+# Appendix
 
 # References
