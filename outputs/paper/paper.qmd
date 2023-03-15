@@ -42,7 +42,7 @@ library(vtable)
 ```{r}
 #| include: false
 
-# Import cleaned data from the outputs folder, originally imported via the 01-download_data.R file
+# Import cleaned data from the outputs folder, originally imported via the 02-data_cleaning.R file
 cleaned_2016gss_data <- read.csv(here::here("outputs/data/cleaned_2016gss_data.csv"))
 
 ## Import averaged variable datasets from the outputs folder, originally created in the 02-data_cleaning.R file
@@ -54,39 +54,54 @@ mean_sex <- read.csv(here::here("outputs/data/mean_sex.csv"))
 mean_childs <- read.csv(here::here("outputs/data/mean_childs.csv"))
 ```
 
-# 1 Introduction
+# Introduction
 
 You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
-# 2 Data {#sec-data}
+# Data {#sec-data}
 
-## 2.1 Survey
+## Survey
 
-Saku :) :)
+### Key Features
 
-### 2.1.1 Key Features
+The General Social Survey (GSS) is a national survey conducted in the United States of America that aims to better understand trends in the American adult population’s social characteristics and attitudes to better inform research and public policy. (@cite3) Beginning in 1972, this interview-based survey is conducted biennially on five key themes: gender and marriage, current affairs, civil liberties, politics, and religion and spirituality.(@cite4) The 2016 GSS is unique in that it also includes questions about internet-usage behaviours, which is why our analysis focuses on the GSS of this year. In 2016, there is data for 2,867 respondents for 961 variables. 
 
-Saku
 
-### 2.1.2 Methodology
+### Methodology
 
-Saku
+The GSS’ target population is adults aged 18 years and older living in the United States. The sampling frame for the 2016 GSS is people living in the US aged 18+ who can speak English or Spanish and live in households. (@cite5) Thus, those living outside households (e.g. university dorms, nursing homes, institutions, military quarters) are not included in the GSS.(@cite6) The frame was created using the NORC National Sampling Frame, which first uses Census data to stratify US geographic regions by size and then chooses metropolitan areas and non-metropolitan counties within these regions, as the first stage of selection.(@cite6) In the second stage of selection, these metropolitan areas and non-metropolitan counties were stratified by race and income and further divided into blocks.(@cite6) Then, the sample is gathered by interviewers beginning from the northwest corner of a given block and moving from household to household until the equal-sex quota has been filled.(@cite6) 
 
-### 2.1.3 Strengths & Weaknesses
+Thus, the sample for the 2016 GSS was an area-probability sample gathered by the clustered sampling approach, as households are selected and then one random member from the household is selected to be included in the survey.(@cite6) A key tradeoff of this approach is that while cluster sampling is that while this method is much easier than completely random sampling, it can lead to bias in that there is more bias if the clusters are similar to each other. 
 
-Saku
+Non-response is handled by inputting it in the GSS dataset as one of the following options depending on the method of non-response: “NA”, “no answer”, “do not know”, or “skipped”. 
 
-## 2.2 Questionnaire
 
-Saku
+### Strengths & Weaknesses
 
-## 2.3 Overview of Data
+A strength of this 2016 GSS survey was that it was delivered both in English and in Spanish, allowing for a greater reach than had the survey just been conducted in English, like in the years previous to 2006.(@cite6) Of the people who had been excluded from this survey due to the English-only delivery, Spanish-speakers made up the majority, so this dual language delivery addressed this key exclusion. (@cite6)
 
-### 2.3.1 Data Source
+Another weakness of this sample is the lack of a gender variable, as the sample only provides a variable on sex. A gender variable would be more useful for data analysis, as it better reflects the respondent’s lived experience. The lack of a gender variable that better accommodates for people’s lived experience might lead to those who feel uncomfortable with the binary categories of sex to refrain from participating in the survey, leading to selection bias. 
+
+Another weakness of the 2016 GSS survey is that the interviewer physically fills out the response for the respondent. This can potentially lead to measurement error. When the interviewer fills out the survey on behalf of the respondent, there may be a difference in the observed responses of the interviewer and the actual responses of the interviewee. This creates difficulty in verifying responses. (@cite13)
+
+## Questionnaire
+
+A strength of the questionnaire was the clear wording of the question regarding Internet usage per week in hours. The survey question was formatted as follows: “Not counting e-mail, about how many minutes or hours per week do you use the Web? (Include time you spend visiting regular web sites and time spent using interactive Internet services like chat rooms, Usenet groups, discussion forums, bulletin boards, and the like.)”. The giving of examples was likely helpful in jogging the respondents’ memory of what exactly Internet usage can look like, as if one is flat out asked whether they use the Internet, it can be hard to conceptualize what that looks like. 
+
+A key weakness of this questionnaire is the race variable, as it only allows for three options: “Black”, “White”, or “Other”, which does not take into account the largest ethnic minority group, Hispanics and Latino Americans, as well as other ethnic groups, such as Asians and Native Americans in the United States. In comparison, while not without fault itself, the US Census identifies 5 minimum categories of race (White, Black or African American, American Indian or Alaska Native, Asian, Native Hawaiian or Other Pacific Islander) and also allows for the reporting of more than one race. (@cite14)
+
+This questionnaire has a limitation in terms of selection bias because of our limited ability to reach the entire population. The respondents who receive the questionnaire are likely to share a similar background with us, which does not achieve a random selection of the population, which is all U.S. citizens. Our study may also be susceptible to volunteering bias because the data is reliant on participants willingly providing their answers, which could lead to biased results.
+
+Relatedly, another weakness of this questionnaire is that questions are allowed non-responses. This results in truncated data, in which the dataset has been incompletely collected. Having no response for a question can only be observed as null, despite there being a possible actual value. (@cite15) There are a variety of reasons as to why a respondent did not want to answer a question, but can only be observed as a non-response to avoid biased assumptions and inaccurate results.
+
+
+## Overview of Data
+
+### Data Source
 
 Max
 
-### 2.3.2 Variables of Interest
+### Variables of Interest
 
 Max
 
@@ -161,7 +176,7 @@ cleaned_2016gss_data |>
 
 @fig-happiness
 
-# 3 Results
+# Results
 
 ```{r}
 #| label: fig-ageandinternet
@@ -237,7 +252,7 @@ mean_childs |> ggplot(aes(x = variable, y = value)) +
   )
 ```
 
-Max
+@fig-childrenandinternet shows the relationship between respondents with a specific number of children and their weekly total hours of Internet use. Respondents that do not have any children are the group that uses the internet the most during the week. The data demonstrates that there is an inverse relationship between the two variables. This means that there is a gradual decrease of internet use hours as the number of children increases. However, the second largest group that uses the internet are those that reported having 8 children or more, making it an outlier.
 
 ```{r}
 #| label: fig-maritalandinternet
@@ -277,22 +292,40 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
 
 @fig-happyandinternet displays the relationship between perceived level of happiness and internet usage in 2016. There seems to be a direct decrease in internet usage the more happy the respondent measures themselves to be, with a difference of 2.5 hours between the happiest respondents and least happy respondents.
 
-# 4 Discussion {#sec-discussion}
+# Discussion {#sec-discussion}
 
-## 4.1 First discussion point {#sec-first-point}
+## Aging reduces the amount of hours spent using the Internet {#sec-first-point}
 
-## 4.2 Second discussion point {#sec-second-point}
 
-## 4.3 Third discussion point {#sec-third-point}
+## Second discussion point {#sec-second-point}
 
-## 4.4 Weaknesses and next steps {#sec-weaknesses}
+### Marital Status
+As seen in @fig-maritalandinternet, people who have never married use the Internet significantly more than those who are married or who are widowed. This trend could partially be explained by the correlation between age and being married, as those who have never been married are more likely to be younger. In the United States in 2016, at the time this survey data was collected, the median age of marriage was 28 years old for women and 30 years old for men. (@cite19) This statistic is consistent with the findings of @fig-ageandinternet, which shows that Internet usage is highest for people aged 21 to 29, people who are just prior to the median age of marriage. This explanation is supported by the finding that widowed people use the Internet the least, out of all of the marital categories. Because widowhood is more likely in people who are older, the correlation between age and Internet use is further reflected here. (@cite20) Thus, the relationship between marriage vs. non-marriage and Internet use, in which those who have never been married use the Internet more than those who are married, is related to the inverse relationship between age and amount of average Internet use stated in Section 4.1 above. 
 
-## 4.5 Ethics and Bias {#sec-bias}
+This trend of younger and non-married people using the Internet more than older, married people could be further explained by the use of online and digital dating apps by younger, non-married people as ways to connect with people romantically. The United States is one of the countries that uses online dating sites and apps the most, suggesting that online dating is normalized in American culture and partially explaining why younger, non-married people use the Internet much more than their older, married counterparts.(@cite21) The widespread usage of handheld mobile devices that has become the norm for all age groups, but especially younger people who are more likely to use social media and online dating apps, furthers this. 
+	
+A third contributing factor to this trend could be that non-married individuals feel more isolated due to not meeting societal norms of marriage and turn to the Internet to seek connections and community. People who live in societies in which marriage is socially expected, such as the United States, can feel isolated, for which using the Internet can help them feel a sense of belonging that they find missing in their lives.(@cite22)
+
+
+### Number of Children 
+
+@fig-childrenandinternet demonstrates the relationship between number of children of respondents and average weekly Internet use. This graph shows that people with no children use the Internet more than people who have children. Like Section 4.2.1 above, this could be due to the correlation between age and having children: those who are older are more likely to have children than those who are younger. The median age at which women have children is 30 years of age, which is consistent with the findings of @fig-ageandinternet, which states that people in their 20s use the Internet the most.(@cite23) This generally inverse relationship between number of children and Internet use, is related to the inverse relationship between age and amount of average Internet use stated in Section 4.1 above. The outlier of the “8+” children category has a high Internet usage because there were only 6 people who responded about their Internet usage in that category (compared to the approximately 500 people who responded about their Internet usage in the “0” children category), such that the result was skewed by one participant who reported 60 hours of Internet use. 
+
+This trend could also be explained by the amount of personal time that people have for themselves. Personal use is one of the main activities of Internet use (including instant messaging and social media), and people with children are less likely to have time for themselves as they spend time caring for their children.(@cite24) This likely increases with more children. Thus, the relatively inverted relationship between number of children and Internet use could be partially explained by the inverted relationship between number of children and personal time. 
+
+However, the Internet has increasingly come to be a key resource for parenting, both for getting information and for receiving support.(@cite25) This explains why average Internet use is relatively similar across people with 1 child to 5 children. 
+
+
+## Third discussion point {#sec-third-point}
+
+## Weaknesses and next steps {#sec-weaknesses}
+
+## Ethics and Bias {#sec-bias}
 
 Based on the data collection methodology provided by GSS, we have identified some potential biases that could arise. The survey's target population consists of adults aged 18 and above who reside in households in the United States. Since this sampling approach focuses only on a specific age group, our analysis may be biased with respect to the age factor. Gss also claimed to be strictly voluntary. While this approach supports research ethics by respecting individuals' autonomy and right to privacy, it can also result in volunteer bias. GSS sample are from a mix of urban, suburban, and rural geographic areas, but only a few thousand respondents are interviewed in the main study. The small sample size may be lead to chance findings. It is likely not statistically significant enough. We also suspect potential sampling bias may screw our end result. However, with not enough information disclosed, we are unable to confirm that. The gender and race options provided by the GSS survey are limited. Participants are only given the options of selecting either "Female" or "Male" for gender, and "Blacks," "Whites," or "Others" for race. This narrow selection does not provide an adequate range of options for survey participants.
 
-# 5 Appendix {.unnumbered}
+# Appendix {.unnumbered}
 
-# 6 Additional details
+# Additional details
 
-# 7 References
+# References
