@@ -55,11 +55,17 @@ mean_sex <- read.csv(here::here("outputs/data/mean_sex.csv"))
 
 ```
 
-# Introduction
+# 1 Introduction
 
 You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
-# Data {#sec-data}
+# 2 Data {#sec-data}
+
+## 2.1 Overview of Data
+
+### 2.1.1 Data Source
+
+### 2.1.2 Variables of Interest
 
 ```{r}
 #| echo: false
@@ -87,11 +93,11 @@ cleaned_2016gss_data |>
   kable_styling(full_width = T)
 ```
 
-## Survey
+## 2.2 Survey
 
-## Questionnaire
+## 2.3 Questionnaire
 
-# Results
+# 3 Results
 
 ```{r}
 #| label: fig-ageandinternet
@@ -269,22 +275,22 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
 
 @fig-happyandinternet displays the relationship between perceived level of happiness and internet usage in 2016. There seems to be a direct decrease in internet usage the more happy the respondent measures themselves to be, with a difference of 2.5 hours between the happiest respondents and least happy respondents.
 
-# Discussion {#sec-discussion}
+# 4 Discussion {#sec-discussion}
 
-## First discussion point {#sec-first-point}
+## 4.1 First discussion point {#sec-first-point}
 
-## Second discussion point {#sec-second-point}
+## 4.2 Second discussion point {#sec-second-point}
 
-## Third discussion point {#sec-third-point}
+## 4.3 Third discussion point {#sec-third-point}
 
-## Weaknesses and next steps {#sec-weaknesses}
+## 4.4 Weaknesses and next steps {#sec-weaknesses}
 
-## Ethics and Bias {#sec-bias}
+## 4.5 Ethics and Bias {#sec-bias}
 
 Based on the data collection methodology provided by GSS, we have identified some potential biases that could arise. The survey's target population consists of adults aged 18 and above who reside in households in the United States. Since this sampling approach focuses only on a specific age group, our analysis may be biased with respect to the age factor. Gss also claimed to be strictly voluntary. While this approach supports research ethics by respecting individuals' autonomy and right to privacy, it can also result in volunteer bias. GSS sample are from a mix of urban, suburban, and rural geographic areas, but only a few thousand respondents are interviewed in the main study. The small sample size may be lead to chance findings. It is likely not statistically significant enough. We also suspect potential sampling bias may screw our end result. However, with not enough information disclosed, we are unable to confirm that. The gender and race options provided by the GSS survey are limited. Participants are only given the options of selecting either "Female" or "Male" for gender, and "Blacks," "Whites," or "Others" for race. This narrow selection does not provide an adequate range of options for survey participants.
 
-# Appendix {.unnumbered}
+# 5 Appendix {.unnumbered}
 
-# Additional details
+# 6 Additional details
 
-# References
+# 7 References
