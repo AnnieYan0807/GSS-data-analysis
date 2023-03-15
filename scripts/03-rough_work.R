@@ -354,7 +354,7 @@ mean_childs <- melt(mean_childs)  #the function melt reshapes it from wide to lo
 mean_childs <- mean_childs[-10,]  # delete NA row
 
 # save mean data
-write_csv(mean_childs, "outputs/data/mean_marital.csv")
+write_csv(mean_childs, "outputs/data/mean_childs.csv")
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_childs |> ggplot(aes(x = variable, y = value)) + 
