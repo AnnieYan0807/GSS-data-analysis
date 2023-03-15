@@ -52,33 +52,126 @@ mean_income <- read.csv(here::here("outputs/data/mean_income.csv"))
 mean_marital <- read.csv(here::here("outputs/data/mean_marital.csv"))
 mean_race <- read.csv(here::here("outputs/data/mean_race.csv"))
 mean_sex <- read.csv(here::here("outputs/data/mean_sex.csv"))
+mean_childs <- read.csv(here::here("outputs/data/mean_childs.csv"))
 
 ```
 
-# Introduction
+# 1 Introduction
 
 You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
-# Data {#sec-data}
+# 2 Data {#sec-data}
+
+## 2.1 Survey
+
+Saku :) :)
+
+### 2.1.1 Key Features
+
+Saku
+
+### 2.1.2 Methodology
+
+Saku
+
+### 2.1.3 Strengths & Weaknesses
+
+Saku
+
+## 2.2 Questionnaire
+
+Saku
+
+## 2.3 Overview of Data
+
+### 2.3.1 Data Source
+
+Max
+
+### 2.3.2 Variables of Interest
+
+Max
 
 ```{r}
 #| echo: false
-# Summary statistics of our GSS data 
-summ_gss <- cleaned_2016gss_data %>% 
-  select(age, sex, race, income, rincome, 
-         degree, childs, marital,
-         happy, wwwhr)
+# ATTEMPT: Summary statistics of our GSS data 
+# summ_gss <- cleaned_2016gss_data %>% 
+#   select(age, sex, race, income, rincome, 
+#          degree, childs, marital,
+#          happy, wwwhr)
 # sumtable(cleaned_2016gss_data,  title = 'Summary Statistics of Our Variables', out = 'kable')
-## the final line doesn't w
-#ork for some reason and i'm mad
+## the final line doesn't work for some reason and i'm mad
+
+# Table showing the first 10 rows of our cleaned dataset
+cleaned_2016gss_data |> 
+  select(wwwhr, age, sex, race, 
+         degree, childs, marital,
+         happy) |> 
+  slice(1:8) |> 
+  kable(caption='A subset of key features',
+        col.names = c("Weekly Internet Hours", "Age", "Sex", "Race", "Highest Degree", 
+                      "Number of Children", "Marital Status", "Happiness Level"),
+        digits = 1,
+        booktabs = FALSE,
+        linesep = "") |>
+  kable_styling(full_width = T)
 ```
 
-## Survey
+Table :)
 
-## Questionnaire
+```{r}
+#| label: fig-agesidebyside
+#| fig-cap: Caption
+#| fig-subcap: ["Subcaption"]
+#| layout-ncol: 2
+#| echo: false
+#| warning: false
 
-# Results
+# bar graph showing relationship between age and sex
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = age, fill = sex)) + 
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  geom_bar(position = "dodge2")
 
+# bar graph showing relationship between age and sex
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = age, fill = race)) + 
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  geom_bar(position = "dodge2")
+```
+
+@fig-agesidebyside
+
+```{r}
+#| label: fig-childsandmarital
+#| fig-cap: Caption
+#| echo: false
+
+# bar graph showing relationship between number of children and marital status
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = childs, fill = marital)) + 
+  geom_bar(position = "dodge2")
+```
+
+@fig-childsandmarital
+
+```{r}
+#| label: fig-happiness
+#| fig-cap: Caption
+#| echo: false
+
+# bar graph showing the different levels of happiness and number of respondents for each response
+cleaned_2016gss_data |>
+  ggplot(mapping = aes(x = happy)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1)) +
+  labs(x = "Level of Happiness", y = "Number of Respondents")
+
+```
+
+@fig-happiness
+
+# 3 Results
 
 ```{r}
 #| label: fig-ageandinternet
@@ -87,7 +180,7 @@ summ_gss <- cleaned_2016gss_data %>%
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_age |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -97,6 +190,7 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
   )
 
 ```
+
 @fig-ageandinternet depicting the relationship between age and average weekly internet usage. The data on internet usage hours for various age groups are averaged to reduce any bias due to selectively chosen survey responses. The curve on the graph is skewed to the right, with its peak occurring in the 21 to 29 age group, which has the highest internet usage of approximately 18 hours per week. Subsequently, internet usage gradually declines with age, with the lowest usage recorded in the 89+ age group at an average of 2 hours per week. This graph indicates that young adults, particularly those aged 21 to 29, spend more time on the internet. As people age, their internet usage tends to decline gradually. The graph suggests a statistically significant correlation between age and internet usage, and the trend is relatively clear.
 
 ```{r}
@@ -107,7 +201,7 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_sex |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -118,6 +212,7 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
 
 
 ```
+
 @fig-genderandinternet illustrates the average weekly internet usage of two genders. Similarly to the age and internet usage graph, the data on internet usage hours for different genders are averaged to minimize any volunteering bias. The data shows that there is no substantial difference between male and female internet usage. Female participants have an average of 12.9 hours per week spent on the internet, while male participants have an slightly higher average of 13.3 hours per week spent on the internet. However, the gender selection in this survey is limited, and further discussion regarding this limitation can be found in the ethics and bias section @sec-bias.
 
 ```{r}
@@ -127,7 +222,7 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_race |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -153,7 +248,8 @@ cleaned_2016gss_data |>
   labs(x = "Personal Income", y = "Number of Respondents")
 
 ```
-Max
+
+Max - might emit...
 
 ```{r}
 #| label: fig-familyincomeandinternet
@@ -162,7 +258,7 @@ Max
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_income |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -179,29 +275,36 @@ cleaned_2016gss_data |>
   labs(x = "Total Family Income", y = "Number of Respondents")
 
 ```
-Max
+
+Max - might emit
 
 ```{r}
 #| label: fig-childrenandinternet
 #| fig-cap: Average Weekly Total of Internet Use by Children
 #| echo: false
 
-# number of children and marital status
-cleaned_2016gss_data |>
-  ggplot(mapping = aes(x = childs, fill = marital)) + 
-  geom_bar(position = "dodge2")
-
+# use tidyverse-style code to pivot and summarise the data 
+mean_childs |> ggplot(aes(x = variable, y = value)) + 
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,hjust=1), 
+        axis.line = element_line(colour = "black"),
+        title = element_text(size = 12)) +
+  labs(
+    x = "Number of Children",
+    y = "Internet Usage Hours"
+  )
 ```
+
 Max
 
 ```{r}
 #| label: fig-maritalandinternet
 #| fig-cap: Average Weekly Total of Internet Use by Marital Status
 #| echo: false
-## Marital 
+
 # use tidyverse-style code to pivot and summarise the data 
 mean_marital |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -210,8 +313,8 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
     y = "Average Internet Usage Hours"
   )
 ```
-@fig-maritalandinternet displays the relationship between marital status and internet usage in 2016. In accordance with popular opinion, people who have never been married use the Internet the most. Most notably, people who are widowed use the Internet the least, perhaps due to the correlation between age and widowhood. 
 
+@fig-maritalandinternet displays the relationship between marital status and internet usage in 2016. In accordance with popular opinion, people who have never been married use the Internet the most. Most notably, people who are widowed use the Internet the least, perhaps due to the correlation between age and widowhood.
 
 ```{r}
 #| label: fig-degreeandinternet
@@ -220,7 +323,7 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_edu |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -229,7 +332,8 @@ mean_edu |> ggplot(aes(x = variable, y = value)) +
     y = "Internet Usage Hours"
   )
 ```
-@fig-degreeandinternet displays the relationship between highest level of education obtained by the respondent and internet usage in 2016. Those who have completed a less than high school degree use the internet the least. 
+
+@fig-degreeandinternet displays the relationship between highest level of education obtained by the respondent and internet usage in 2016. Those who have completed a less than high school degree use the internet the least.
 
 ```{r}
 #| label: fig-happyandinternet
@@ -238,7 +342,7 @@ mean_edu |> ggplot(aes(x = variable, y = value)) +
 
 # use tidyverse-style code to pivot and summarise the data 
 mean_happy |> ggplot(aes(x = variable, y = value)) + 
-  geom_point() +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45,hjust=1), 
         axis.line = element_line(colour = "black"),
         title = element_text(size = 12)) +
@@ -248,27 +352,24 @@ mean_happy |> ggplot(aes(x = variable, y = value)) +
   )
 ```
 
-@fig-happyandinternet displays the relationship between perceived level of happiness and internet usage in 2016. There seems to be a direct decrease in internet usage the more happy the respondent measures themselves to be, with a difference of 2.5 hours between the happiest respondents and least happy respondents. 
+@fig-happyandinternet displays the relationship between perceived level of happiness and internet usage in 2016. There seems to be a direct decrease in internet usage the more happy the respondent measures themselves to be, with a difference of 2.5 hours between the happiest respondents and least happy respondents.
 
+# 4 Discussion {#sec-discussion}
 
+## 4.1 First discussion point {#sec-first-point}
 
-# Discussion {#sec-discussion}
+## 4.2 Second discussion point {#sec-second-point}
 
-## First discussion point {#sec-first-point}
+## 4.3 Third discussion point {#sec-third-point}
 
-## Second discussion point {#sec-second-point}
+## 4.4 Weaknesses and next steps {#sec-weaknesses}
 
-## Third discussion point {#sec-third-point}
-
-## Weaknesses and next steps {#sec-weaknesses}
-
-## Ethics and Bias {#sec-bias}
+## 4.5 Ethics and Bias {#sec-bias}
 
 Based on the data collection methodology provided by GSS, we have identified some potential biases that could arise. The survey's target population consists of adults aged 18 and above who reside in households in the United States. Since this sampling approach focuses only on a specific age group, our analysis may be biased with respect to the age factor. Gss also claimed to be strictly voluntary. While this approach supports research ethics by respecting individuals' autonomy and right to privacy, it can also result in volunteer bias. GSS sample are from a mix of urban, suburban, and rural geographic areas, but only a few thousand respondents are interviewed in the main study. The small sample size may be lead to chance findings. It is likely not statistically significant enough. We also suspect potential sampling bias may screw our end result. However, with not enough information disclosed, we are unable to confirm that. The gender and race options provided by the GSS survey are limited. Participants are only given the options of selecting either "Female" or "Male" for gender, and "Blacks," "Whites," or "Others" for race. This narrow selection does not provide an adequate range of options for survey participants.
 
+# 5 Appendix {.unnumbered}
 
-# Appendix {.unnumbered}
+# 6 Additional details
 
-# Additional details
-
-# References
+# 7 References
