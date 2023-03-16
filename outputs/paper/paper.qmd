@@ -149,7 +149,7 @@ The visualization of age and race in @fig-agesidebyside demonstrates that the re
 # Bar graph showing relationship between number of children and marital status
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = childs, fill = marital)) + 
-  geom_bar(position = "dodge2")
+  geom_bar(position = "dodge2") +
   labs(x = "Number of Children", y = "Number of Respondents", fill="Marital Status")
 ```
 
