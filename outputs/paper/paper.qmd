@@ -110,25 +110,7 @@ This report was created using the R statistical programming language [@R]. The h
 
 Our report selects 7 variables for analysis. We focus on 6 particular factors that we predicted affects the amount of Internet use: age, sex, race, number of children, marital status, and happiness. In this paper, we investigate the influence of these various factors on the total number of hours of weekly Internet usage. The packages tidyverse [@tidyverse], haven [@haven], and reshape2 [@reshape2] were used to clean the dataset by grouping or converting the questionnaire responses into categorical or textual answers.
 
-```{r}
-#| echo: false
-#| tbl-cap: The Variables of Interest
-#| label: tbl-variables
-
-# Table showing the first 10 rows of our cleaned dataset
-cleaned_2016gss_data |> 
-  select(wwwhr, age, sex, race, childs, marital, happy) |> 
-  slice(1:7) |> 
-  kable(caption = "The Variables of Study",
-        col.names = c("Weekly Internet Hours", "Age", "Sex", "Race",
-                      "Number of Children", "Marital Status", "Happiness Level"),
-        digits = 1,
-        booktabs = FALSE,
-        linesep = "") |>
-  kable_styling(full_width = T)
-```
-
-@tbl-variables shows the first 10 rows of the cleaned dataset. The variables, Number of Children and Weekly Internet Hours, are recorded as a numerical value. Weekly Internet Hours has a maximum value of 168, as there are only 168 hours in a week. Age is also recorded as a numerical value, but is cleaned to represent ages in groups of ten years. The other variables, Sex, Race, Marital Status, and Happiness Level, are all recorded as a textual option for respondents to choose from.
+The variables, Number of Children and Weekly Internet Hours, are recorded as a numerical value. Weekly Internet Hours has a maximum value of 168, as there are only 168 hours in a week. Age is also recorded as a numerical value, but is cleaned to represent ages in groups of ten years. The other variables, Sex, Race, Marital Status, and Happiness Level, are all recorded as a textual option for respondents to choose from.
 
 ```{r}
 #| label: fig-agesidebyside
