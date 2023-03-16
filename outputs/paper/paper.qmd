@@ -128,14 +128,14 @@ cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = sex)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   geom_bar(position = "dodge2")+
-  labs(x = "Age", y = "Count", fill="Sex")
+  labs(x = "Age", y = "Number of Respondents", fill="Sex")
 
 # Bar graph showing relationship between age and race 
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = race)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   geom_bar(position = "dodge2")+
-  labs(x = "Age", y = "Count", fill="Race")
+  labs(x = "Age", y = "Number of Respondents", fill="Race")
 ```
 
 Most of the respondents of the 2016 GSS are adults ranging from ages 21 to 69 years old. The size of each age group between that range oscillates within the right skewed distribution. The largest age group respondent size is 50 to 59 years old. By graphing the variables, age and sex in @fig-agesidebyside, we observe that there are more female adults in each age group participating in this survey than there are male adults. The overall distribution is skewed to the right. 
@@ -150,6 +150,7 @@ The visualization of age and race in @fig-agesidebyside demonstrates that the re
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = childs, fill = marital)) + 
   geom_bar(position = "dodge2")
+  labs(x = "Number of Children", y = "Number of Respondents", fill="Marital Status")
 ```
 
 According to @fig-childsandmarital, respondents who are married have a right skew distribution of the number of children they have, where the mode of the data is having two children. As for individuals that responded as never having been married, the distribution was exponential, in which the mode of this distribution is having zero children. As the number of children increases, the number of individuals who have never been married decreases. The distribution of the other minority marital groups are skewed to the right. Overall, most survey respondents have zero children.
