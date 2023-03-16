@@ -128,14 +128,14 @@ cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = sex)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   geom_bar(position = "dodge2")+
-  labs(x = "Age", y = "Count", fill="Sex")
+  labs(x = "Age", y = "Number of Respondents", fill="Sex")
 
 # Bar graph showing relationship between age and race 
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = race)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
   geom_bar(position = "dodge2")+
-  labs(x = "Age", y = "Count", fill="Race")
+  labs(x = "Age", y = "Number of Respondents", fill="Race")
 ```
 
 Most of the respondents of the 2016 GSS are adults ranging from ages 21 to 69 years old. The size of each age group between that range oscillates within the right skewed distribution. The largest age group respondent size is 50 to 59 years old. By graphing the variables, age and sex in @fig-agesidebyside, we observe that there are more female adults in each age group participating in this survey than there are male adults. The overall distribution is skewed to the right. 
@@ -150,6 +150,7 @@ The visualization of age and race in @fig-agesidebyside demonstrates that the re
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = childs, fill = marital)) + 
   geom_bar(position = "dodge2")
+  labs(x = "Number of Children", y = "Number of Respondents", fill="Marital Status")
 ```
 
 According to @fig-childsandmarital, respondents who are married have a right skew distribution of the number of children they have, where the mode of the data is having two children. As for individuals that responded as never having been married, the distribution was exponential, in which the mode of this distribution is having zero children. As the number of children increases, the number of individuals who have never been married decreases. The distribution of the other minority marital groups are skewed to the right. Overall, most survey respondents have zero children.
@@ -340,5 +341,7 @@ Finally, looking at how COVID-19 impacted Internet usage would be a particularly
 Based on the data collection methodology provided by GSS, we have identified some potential biases that could arise. The survey's target population consists of adults aged 18 and above who reside in households in the United States. Since this sampling approach focuses only on a specific age group, our analysis may be biased with respect to the age factor. GSS also claimed to be strictly voluntary. While this approach supports research ethics by respecting individuals' autonomy and right to privacy, it can also result in volunteer bias. The GSS sample is from a combination of urban, suburban, and rural geographic areas, but only a few thousand respondents are interviewed in the main study. The small sample size may lead to chance findings. We also suspect potential sampling bias may affect our end results. However, with not enough information disclosed, we are unable to confirm that. The gender and race options provided by the GSS survey are limited. Participants are only given the options of selecting either "Female" or "Male" for gender, and "Black," "White," or "Other" for race. This narrow selection does not provide an adequate range of options for survey participants.
 
 # Appendix
+
+Please find our supplementary survey to the GSS 2016 questionnaire at the following link: https://docs.google.com/forms/d/e/1FAIpQLSe0H6LMKnAehmWwiag4u4cBW27ttiRh_kY1SfmOc7pQWlNrrQ/viewform?usp=sf_link
 
 # References
