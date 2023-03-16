@@ -342,4 +342,6 @@ Based on the data collection methodology provided by GSS, we have identified som
 
 # Appendix
 
+Please find our supplementary survey to the GSS 2016 questionnaire at the following link: https://docs.google.com/forms/d/e/1FAIpQLSe0H6LMKnAehmWwiag4u4cBW27ttiRh_kY1SfmOc7pQWlNrrQ/viewform?usp=sf_link
+
 # References
