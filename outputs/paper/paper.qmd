@@ -127,13 +127,15 @@ The variables, Number of Children and Weekly Internet Hours, are recorded as a n
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = sex)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  geom_bar(position = "dodge2")
+  geom_bar(position = "dodge2")+
+  labs(x = "Age", y = "Count", fill="Sex")
 
 # Bar graph showing relationship between age and race 
 cleaned_2016gss_data |>
   ggplot(mapping = aes(x = age, fill = race)) + 
   theme(axis.text.x = element_text(angle = 45,hjust=1)) +
-  geom_bar(position = "dodge2")
+  geom_bar(position = "dodge2")+
+  labs(x = "Age", y = "Count", fill="Race")
 ```
 
 Most of the respondents of the 2016 GSS are adults ranging from ages 21 to 69 years old. The size of each age group between that range oscillates within the right skewed distribution. The largest age group respondent size is 50 to 59 years old. By graphing the variables, age and sex in @fig-agesidebyside, we observe that there are more female adults in each age group participating in this survey than there are male adults. The overall distribution is skewed to the right. 
