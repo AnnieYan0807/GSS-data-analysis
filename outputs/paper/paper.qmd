@@ -8,8 +8,11 @@ author:
 thanks: "Code and data are available at: https://github.com/AnnieYan0807/GSS-data-analysis.git."
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "In this study, we investigated the 2016 United States General Social Survey to gain an understanding of the characteristics of the people that use the Internet the most, such as age, marital status, number of children, and level of happiness. We did this by comparing the average number of weekly Internet use across population groups. We found that young adults that have never been married or have children and who are not satisfied with their general happiness are those that use the Internet the most. In an era in which the Internet is becoming more and more used in the US, it is important to understand which population group uses the Internet the most in order to inform public policies surrounding Internet addiction and mental health. "
-format: pdf
+format: 
+  pdf:
+    documentclass: article
+    geometry: margin = 1in
+    abstract: "In this study, we investigated the 2016 United States General Social Survey to gain an understanding of the characteristics of the people that use the Internet the most, such as age, marital status, number of children, and level of happiness. We did this by comparing the average number of weekly Internet use across population groups. We found that young adults that have never been married or have children and who are not satisfied with their general happiness are those that use the Internet the most. In an era in which the Internet is becoming more and more used in the US, it is important to understand which population group uses the Internet the most in order to inform public policies surrounding Internet addiction and mental health. "
 number-sections: true
 bibliography: references.bib
 ---
