@@ -141,6 +141,8 @@ cleaned_2016gss_data |>
 Most of the respondents of the 2016 GSS are adults ranging from ages 21 to 69 years old. The size of each age group between that range oscillates within the right skewed distribution. The largest age group respondent size is 50 to 59 years old. By graphing the variables, age and sex in @fig-agesidebyside, we observe that there are more female adults in each age group participating in this survey than there are male adults. The overall distribution is skewed to the right. 
 The visualization of age and race in @fig-agesidebyside demonstrates that the respondents that identify with the White racial group comprises most of the respondent sample. This racial group is also shown to have a near-symmetrical distribution. Conversely, the other racial groups in this survey, Black and Other, are significantly the minority of the survey sample. The Black and Other racial groups are skewed to the right, illustrating that there are less individuals that identify with these racial groups in the older age groups. According to the 2020 US Census surveys, the most common racial group in America is White or Caucasian, which means that the 2016 GSS data on this group provides a relatively accurate representation of American society [@citem3].
 
+\newpage
+
 ```{r}
 #| label: fig-childsandmarital
 #| fig-cap: Relationship between Marital Status and Number of Children
@@ -154,6 +156,8 @@ cleaned_2016gss_data |>
 ```
 
 According to @fig-childsandmarital, respondents who are married have a right skew distribution of the number of children they have, where the mode of the data is having two children. As for individuals that responded as never having been married, the distribution was exponential, in which the mode of this distribution is having zero children. As the number of children increases, the number of individuals who have never been married decreases. The distribution of the other minority marital groups are skewed to the right. Overall, most survey respondents have zero children.
+
+\newpage
 
 ```{r}
 #| label: fig-happiness
@@ -169,6 +173,8 @@ cleaned_2016gss_data |>
 ```
 
 @fig-happiness demonstrates general happiness trends and exhibits a left skew distribution. This illustrates that a significant proportion of the respondents indicate that they are fairly happy and an adequate proportion indicate that they are very happy. With a limited number of options to measure happiness quantitatively, it is difficult to discern a distribution on varying levels of happiness.
+
+\newpage
 
 # Results
 
@@ -191,6 +197,8 @@ mean_age |> ggplot(aes(x = variable, y = value)) +
 
 @fig-ageandinternet depicts the relationship between age and average weekly Internet usage. The data on Internet usage hours for various age groups are averaged to reduce any bias due to selectively chosen survey responses. The curve on the graph is skewed to the right, with its peak occurring in the 21 to 29 age group, which has the highest Internet usage of approximately 18 hours per week. Subsequently, Internet usage gradually declines with age, with the lowest usage recorded in the 89+ age group at an average of 2 hours per week. This graph indicates that young adults, particularly those aged 21 to 29, spend more time on the Internet. As people age, their Internet usage tends to decline gradually. The graph suggests a statistically significant correlation between age and Internet usage, and the trend is relatively clear.
 
+\newpage
+
 ```{r}
 #| label: fig-genderandinternet
 #| fig-cap: Average Weekly Total of Internet Use by Gender
@@ -209,6 +217,8 @@ mean_sex |> ggplot(aes(x = variable, y = value)) +
 ```
 
 @fig-genderandinternet illustrates the average weekly Internet usage of two sexes. Similar to the age and Internet usage graph, the data on Internet usage hours for different genders are averaged to minimize any volunteering bias. The data shows that there is no substantial difference between male and female Internet usage. Female participants have an average of 12.9 hours per week spent on the Internet, while male participants have a slightly higher average of 13.3 hours per week spent on the Internet. However, the gender selection in this survey is limited, and further discussion regarding this limitation can be found in the ethics and bias section @sec-bias.
+
+\newpage
 
 ```{r}
 #| label: fig-raceandinternet
@@ -229,6 +239,8 @@ mean_race |> ggplot(aes(x = variable, y = value)) +
 
 @fig-raceandinternet displays the average weekly Internet usage of individuals belonging to different races. Based on the data, we can observe that individuals who do not identify as either Black or White have the highest Internet usage, with an average of 15.5 hours per week. Black individuals have a similar level of Internet usage, also averaging 15.2 hours per week. In contrast, White individuals tend to have the lowest Internet usage, with an average of 12.3 hours per week.
 
+\newpage
+
 ```{r}
 #| label: fig-childrenandinternet
 #| fig-cap: Average Weekly Total of Internet Use by Children
@@ -248,6 +260,8 @@ mean_childs |> ggplot(aes(x = variable, y = value)) +
 
 @fig-childrenandinternet shows the relationship between respondents with a specific number of children and their weekly total hours of Internet use. Respondents that do not have any children are the group that uses the Internet the most during the week. Their average amount of hours of weekly Internet use is approximately 16.5 hours. The data demonstrates that there is an inverse relationship between the two variables. This means that there is a gradual decrease of Internet use hours as the number of children increases. The group that uses the least amount of hours, with an average of approximately 1.5 hours of Internet use weekly, are those with 7 children. However, the second largest group that uses the Internet are those that reported having 8 children or more, making this group an outlier.
 
+\newpage
+
 ```{r}
 #| label: fig-maritalandinternet
 #| fig-cap: Average Weekly Total of Internet Use by Marital Status
@@ -266,6 +280,8 @@ mean_marital |> ggplot(aes(x = variable, y = value)) +
 ```
 
 @fig-maritalandinternet displays the relationship between marital status and Internet usage in 2016. In accordance with popular opinion, people who have never been married use the Internet the most, with an average of around 17.5 hours per week. Most notably, people who are widowed use the Internet the least, with an average of around 9.5 hours per week, perhaps due to the correlation between age and widowhood. The graph suggests a significant difference in the Internet use between these two population groups, with a difference of 8 hours between the two.
+
+\newpage
 
 ```{r}
 #| label: fig-happyandinternet
@@ -340,8 +356,12 @@ Finally, looking at how COVID-19 impacted Internet usage would be a particularly
 
 Based on the data collection methodology provided by GSS, we have identified some potential biases that could arise. The survey's target population consists of adults aged 18 and above who reside in households in the United States. Since this sampling approach focuses only on a specific age group, our analysis may be biased with respect to the age factor. GSS also claimed to be strictly voluntary. While this approach supports research ethics by respecting individuals' autonomy and right to privacy, it can also result in volunteer bias. The GSS sample is from a combination of urban, suburban, and rural geographic areas, but only a few thousand respondents are interviewed in the main study. The small sample size may lead to chance findings. We also suspect potential sampling bias may affect our end results. However, with not enough information disclosed, we are unable to confirm that. The gender and race options provided by the GSS survey are limited. Participants are only given the options of selecting either "Female" or "Male" for gender, and "Black," "White," or "Other" for race. This narrow selection does not provide an adequate range of options for survey participants.
 
+\newpage
+
 # Appendix
 
-Please find our supplementary survey to the GSS 2016 questionnaire at the following link: https://docs.google.com/forms/d/e/1FAIpQLSe0H6LMKnAehmWwiag4u4cBW27ttiRh_kY1SfmOc7pQWlNrrQ/viewform?usp=sf_link
+Please find our supplementary survey to the GSS 2016 questionnaire at the following footnote link.^[https://docs.google.com/forms/d/e/1FAIpQLSe0H6LMKnAehmWwiag4u4cBW27ttiRh_kY1SfmOc7pQWlNrrQ/viewform?usp=sf_link]
+
+\newpage
 
 # References
